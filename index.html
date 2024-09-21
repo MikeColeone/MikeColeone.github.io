@@ -112,7 +112,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -130,6 +130,176 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/21/Vue-scoped/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/21/Vue-scoped/" class="post-title-link" itemprop="url">Vue scoped</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-09-21 16:50:57 / Modified: 16:58:06" itemprop="dateCreated datePublished" datetime="2024-09-21T16:50:57+08:00">2024-09-21</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="scoped"><a href="#scoped" class="headerlink" title="scoped"></a>scoped</h2><p>在vue中，组件的渲染和scoped样式的绑定顺序是先渲染子组件，然后再进行样式绑定</p>
+<ol>
+<li><p>子组件的渲染</p>
+<ol>
+<li><p>vue中的渲染时自上而下的，遇到子组件时父组件会有先渲染子组件，然后继续渲染，在渲染时生成的父组件和子组件的标识符是不同的，父组件的DOM节点会带有父组件的<code>data-v-xxxx</code>属性标识符，子组件的DOM节点会带有子组件的<code>data-v-yyyy</code>属性标识符。</p>
+</li>
+<li><p>子组件渲染时会生成对应的虚拟的DOM,并挂载到父组件的模板中</p>
+</li>
+</ol>
+</li>
+<li><p>scoped样式的生成和绑定       </p>
+<ol>
+<li><p>当组件的DOM结构生成后，Vue会为该组件的元素添加特定的<code>data</code>属性标识符（例如 <code>data-v-xxxx</code>），以区分不同组件的DOM元素。</p>
+</li>
+<li><p>在这个过程中，Vue的<code>scoped</code>机制会确保样式选择器也自动带有这个标识符，只作用于具有相同标识符的元素</p>
+</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/20/Vue-Router/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/20/Vue-Router/" class="post-title-link" itemprop="url">Vue Router</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-09-20 17:29:53 / Modified: 17:35:15" itemprop="dateCreated datePublished" datetime="2024-09-20T17:29:53+08:00">2024-09-20</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Vue-Router"><a href="#Vue-Router" class="headerlink" title="Vue Router"></a>Vue Router</h1><p><a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/">Vue Router | Vue.js 的官方路由</a></p>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><ol>
+<li><p>在scr下创建router文件夹</p>
+</li>
+<li><p>引入</p>
+</li>
+<li><p>声明数组，存储对象，包括两个属性，path和compents</p>
+</li>
+<li><p>创建路由器 </p>
+<pre><code class="const">
+</code></pre>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
