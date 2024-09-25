@@ -112,7 +112,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -130,6 +130,400 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/25/ssm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/25/ssm/" class="post-title-link" itemprop="url">ssm</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-09-25 14:10:21 / Modified: 15:49:52" itemprop="dateCreated datePublished" datetime="2024-09-25T14:10:21+08:00">2024-09-25</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="spring"><a href="#spring" class="headerlink" title="spring"></a>spring</h1><p>帮助管理组件 可复用的java类</p>
+<p>写配置,ioc读取配置文件，利用反射技术实现创建对象（控制反转）</p>
+<p>依赖注入（di）(dependency injection):一个对象注入到另一个对象内 实现内部注入 实现对象直接的解耦</p>
+<p>接口</p>
+<p>BeanFactory —-&gt;规定ioc容器的基本动作（基本接口）</p>
+<p>ApplicationContext—&gt;拓展动作（继承自BeanFactory）</p>
+<p>实现类</p>
+<p>ClassPathXmlApplicationContext</p>
+<ol>
+<li><p>配置文件是xml格式</p>
+</li>
+<li><p>项目resources的类路径下</p>
+</li>
+</ol>
+<p>FileSystemXmlApplicationContext</p>
+<ol>
+<li><p>配置文件是xml</p>
+</li>
+<li><p>项目在某磁盘之下</p>
+</li>
+</ol>
+<p>WebApplicationContext</p>
+<ol>
+<li>web对应的ioc容器</li>
+</ol>
+<p>AnnotationConfigApplicationContext</p>
+<ol>
+<li>配置文件是java类</li>
+</ol>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<li><p>编写配置文件:xml 注解 配置： 组件信息 组件之间的关系</p>
+</li>
+<li><p>实例化ioc容器对象：指定配置信息 在内部发生控制反转 和依赖注入</p>
+</li>
+<li><p>在java代码中获取组件 正常使用组件、</p>
+</li>
+</ol>
+<p>基于xml组件声明配置信息</p>
+<p>实例化对象：构造函数工厂模式 反射</p>
+<p>不同的实例化方式配置方式不同</p>
+<p>无参构造函数的配置方法</p>
+<p>spring是高级容器 会由缓存的过程 先创建对象ioc然后赋值di</p>
+<p>根据构造参数的顺序进行 （参数顺序不是使用顺序）</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/24/vim/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/24/vim/" class="post-title-link" itemprop="url">vim</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-09-24 20:07:03" itemprop="dateCreated datePublished" datetime="2024-09-24T20:07:03+08:00">2024-09-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-09-25 21:34:36" itemprop="dateModified" datetime="2024-09-25T21:34:36+08:00">2024-09-25</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Vim-Linux-vi-vim-菜鸟教程-runoob-com"><a href="#Vim-Linux-vi-vim-菜鸟教程-runoob-com" class="headerlink" title="[Vim](Linux vi&#x2F;vim | 菜鸟教程 (runoob.com))"></a>[Vim](<a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-vim.html">Linux vi&#x2F;vim | 菜鸟教程 (runoob.com)</a>)</h1><p>一种程序开发工具</p>
+<h2 id="三种模式"><a href="#三种模式" class="headerlink" title="三种模式"></a>三种模式</h2><ol>
+<li><p>命令模式</p>
+<ul>
+<li><p>i – 切换到输入模式，在光标当前位置开始输入文本。</p>
+</li>
+<li><p>x – 删除当前光标所在处的字符。</p>
+</li>
+<li><p>: – 切换到底线命令模式，以在最底一行输入命令。</p>
+</li>
+<li><p>a – 进入插入模式，在光标下一个位置开始输入文本。</p>
+</li>
+<li><p>o：在当前行的下方插入一个新行，并进入插入模式。</p>
+</li>
+<li><p>O – 在当前行的上方插入一个新行，并进入插入模式。</p>
+</li>
+<li><p>dd – 剪切当前行。</p>
+</li>
+<li><p>yy – 复制当前行。</p>
+</li>
+<li><p>p（小写） – 粘贴剪贴板内容到光标下方。</p>
+</li>
+<li><p>P（大写）– 粘贴剪贴板内容到光标上方。</p>
+</li>
+<li><p>u – 撤销上一次操作。</p>
+</li>
+<li><p>Ctrl + r – 重做上一次撤销的操作。</p>
+</li>
+<li><p>:w – 保存文件。</p>
+</li>
+<li><p>:q – 退出 Vim 编辑器。</p>
+</li>
+<li><p>:q! – 强制退出Vim 编辑器，不保存修改。</p>
+</li>
+</ul>
+</li>
+<li><p>输入模式</p>
+<ul>
+<li><p><strong>字符按键以及Shift组合</strong>，输入字符</p>
+</li>
+<li><p><strong>ENTER</strong>，回车键，换行</p>
+</li>
+<li><p><strong>BACK SPACE</strong>，退格键，删除光标前一个字符</p>
+</li>
+<li><p><strong>DEL</strong>，删除键，删除光标后一个字符</p>
+</li>
+<li><p><strong>方向键</strong>，在文本中移动光标</p>
+</li>
+<li><p><strong>HOME</strong>&#x2F;<strong>END</strong>，移动光标到行首&#x2F;行尾</p>
+</li>
+<li><p><strong>Page Up</strong>&#x2F;<strong>Page Down</strong>，上&#x2F;下翻页</p>
+</li>
+<li><p><strong>Insert</strong>，切换光标为输入&#x2F;替换模式，光标将变成竖线&#x2F;下划线</p>
+</li>
+<li><p><strong>ESC</strong>，退出输入模式，切换到命令模式</p>
+</li>
+</ul>
+</li>
+<li><p>底线命令模式（在命令模式时输入: 进入底线模式）</p>
+<ul>
+<li><p><code>:w</code>：保存文件。</p>
+</li>
+<li><p><code>:q</code>：退出 Vim 编辑器。</p>
+</li>
+<li><p><code>:wq</code>：保存文件并退出 Vim 编辑器。</p>
+</li>
+<li><p><code>:q!</code>：强制退出Vim编辑器，不保存修改。</p>
+</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/24/docker/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/24/docker/" class="post-title-link" itemprop="url">docker</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-09-24 20:03:10" itemprop="dateCreated datePublished" datetime="2024-09-24T20:03:10+08:00">2024-09-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/21/async-await/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/21/async-await/" class="post-title-link" itemprop="url">async/await</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-09-21 18:54:36" itemprop="dateCreated datePublished" datetime="2024-09-21T18:54:36+08:00">2024-09-21</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
