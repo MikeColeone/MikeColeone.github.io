@@ -112,9 +112,17 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span>
       </div>
   </nav>
 </div>
@@ -130,6 +138,108 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/25/docker-mysql-8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/25/docker-mysql-8/" class="post-title-link" itemprop="url">docker mysql:8</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-09-25 21:53:31 / Modified: 22:05:38" itemprop="dateCreated datePublished" datetime="2024-09-25T21:53:31+08:00">2024-09-25</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="docker拉取mysql"><a href="#docker拉取mysql" class="headerlink" title="docker拉取mysql"></a>docker拉取mysql</h1><p>“”本文记录了利用centos7拉取mysql:8的过程””</p>
+<ol>
+<li><p>启动docker 并查看docker状态</p>
+<blockquote>
+<p>sudo systemctl start docker</p>
+<p>sudo systemctl status docker </p>
+</blockquote>
+</li>
+<li><p>搜索 拉取mysql镜像</p>
+<blockquote>
+<p>docker search mysql</p>
+<p>docker pull mysql:8  </p>
+</blockquote>
+</li>
+<li><p>创建启动容器</p>
+<blockquote>
+<p>docker run -di –name&#x3D;容器名称 \</p>
+<p>-p 3306:3306 \ </p>
+<p>-e MYSQL_ROOT_PASSWORD&#x3D;密码 \</p>
+<p>-d mysql:8</p>
+</blockquote>
+</li>
+<li><p>检查容器状态</p>
+<blockquote>
+<p>docker ps</p>
+</blockquote>
+</li>
+<li><p>连接到Mysql</p>
+<blockquote>
+<p>docker exec -it mysql-container mysql -uroot -p密码</p>
+</blockquote>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -428,6 +538,22 @@
 
       <time title="Created: 2024-09-24 20:03:10" itemprop="dateCreated datePublished" datetime="2024-09-24T20:03:10+08:00">2024-09-24</time>
     </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-09-28 15:28:03" itemprop="dateModified" datetime="2024-09-28T15:28:03+08:00">2024-09-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a>
+        </span>
+    </span>
 
   
 </div>
@@ -439,7 +565,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          
+          <h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><h2 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h2><p>仅以此记录心得 作为个人复习使用</p>
+<h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2>
       
     </div>
 
