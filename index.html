@@ -112,7 +112,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -358,9 +358,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-09-25 14:10:21 / Modified: 15:49:52" itemprop="dateCreated datePublished" datetime="2024-09-25T14:10:21+08:00">2024-09-25</time>
+      <time title="Created: 2024-09-25 14:10:21" itemprop="dateCreated datePublished" datetime="2024-09-25T14:10:21+08:00">2024-09-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-09-28 16:14:52" itemprop="dateModified" datetime="2024-09-28T16:14:52+08:00">2024-09-28</time>
     </span>
 
   
@@ -624,7 +630,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-09-28 15:28:03" itemprop="dateModified" datetime="2024-09-28T15:28:03+08:00">2024-09-28</time>
+      <time title="Modified: 2024-09-29 17:20:49" itemprop="dateModified" datetime="2024-09-29T17:20:49+08:00">2024-09-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -647,7 +653,98 @@
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><h2 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h2><p>仅以此记录心得 作为个人复习使用</p>
-<h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2>
+<h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><h2 id="Order"><a href="#Order" class="headerlink" title="Order"></a>Order</h2><p>’‘’通过–help‘’ 查看细节 参数</p>
+<ol>
+<li>检索</li>
+</ol>
+<blockquote>
+<p>docker search</p>
+</blockquote>
+<ol start="2">
+<li><p>下载(或者官方镜像下载)</p>
+<blockquote>
+<p>docker pull</p>
+</blockquote>
+</li>
+<li><p>列表</p>
+<blockquote>
+<p>docker images</p>
+</blockquote>
+</li>
+<li><p>删除镜像</p>
+<blockquote>
+<p>docker rmi</p>
+</blockquote>
+</li>
+<li><p>查看运行容器 运行的容器不能直接删除 除非使用强制删除</p>
+<blockquote>
+<p>docker ps</p>
+</blockquote>
+</li>
+<li><p>启动容器</p>
+<blockquote>
+<p>docker start</p>
+</blockquote>
+</li>
+<li><p>停掉应用</p>
+<blockquote>
+<p>docker stop</p>
+</blockquote>
+</li>
+<li><p>运行容器 可以加参数设置 启动方式 运行在自己环境之内 是隔离的 要向外部访问 需要做端口映射 映射到自己主机 及通过主机访问 </p>
+<blockquote>
+<p>docker run</p>
+<p>-d 后台启动 防止阻塞控制台</p>
+<p>– name 命名 并且不能重名</p>
+<p>-p 端口</p>
+</blockquote>
+</li>
+<li><p>进入容器 修改应用 容器有自己的linux系统 </p>
+<blockquote>
+<p>docker exec</p>
+<p>-it 以交互模式</p>
+<p>&#x2F;bin&#x2F;bash 交互模式控制台</p>
+</blockquote>
+</li>
+<li><p>提交镜像</p>
+<blockquote>
+<p>docker commit 提交镜像</p>
+</blockquote>
+</li>
+<li><p>保存镜像</p>
+<blockquote>
+<p>docker save 保存镜像为文件</p>
+<p>-o 压缩文件名</p>
+</blockquote>
+</li>
+<li><p>加载镜像</p>
+<blockquote>
+<p>docker load</p>
+<p>-i 压缩包</p>
+</blockquote>
+</li>
+<li><p>分享社区</p>
+<blockquote>
+<p>docker login</p>
+</blockquote>
+</li>
+<li><p>命名</p>
+<blockquote>
+<p>docker</p>
+</blockquote>
+</li>
+<li><p>ci</p>
+<blockquote>
+<p>docker </p>
+</blockquote>
+</li>
+<li><p>改名</p>
+<blockquote>
+<p>docker tag</p>
+</blockquote>
+</li>
+</ol>
+
       
     </div>
 
@@ -1088,13 +1185,6 @@
 
       <time title="Created: 2024-09-17 16:50:08" itemprop="dateCreated datePublished" datetime="2024-09-17T16:50:08+08:00">2024-09-17</time>
     </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-09-28 15:57:26" itemprop="dateModified" datetime="2024-09-28T15:57:26+08:00">2024-09-28</time>
-    </span>
 
   
 </div>
@@ -1124,9 +1214,6 @@
 
 
 
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
 
 </div>
   </main>

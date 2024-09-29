@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="dockerIntroduce仅以此记录心得 作为个人复习使用 Question">
+    <meta name="description" content="dockerIntroduce仅以此记录心得 作为个人复习使用 QuestionOrder’‘’通过–help‘’ 查看细节 参数  检索   docker search   下载(或者官方镜像下载)  docker pull   列表  docker images   删除镜像  docker rmi   查看运行容器 运行的容器不能直接删除 除非使用强制删除  docker ps   启动容器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="docker">
 <meta property="og:url" content="http://example.com/docker/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="dockerIntroduce仅以此记录心得 作为个人复习使用 Question">
+<meta property="og:description" content="dockerIntroduce仅以此记录心得 作为个人复习使用 QuestionOrder’‘’通过–help‘’ 查看细节 参数  检索   docker search   下载(或者官方镜像下载)  docker pull   列表  docker images   删除镜像  docker rmi   查看运行容器 运行的容器不能直接删除 除非使用强制删除  docker ps   启动容器">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-09-24T12:03:10.000Z">
-<meta property="article:modified_time" content="2024-09-28T07:28:03.842Z">
+<meta property="article:modified_time" content="2024-09-29T09:20:49.443Z">
 <meta property="article:author" content="HeDingXian">
 <meta property="article:tag" content="docker">
 <meta property="article:tag" content="linux">
@@ -107,7 +107,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#docker"><span class="nav-number">1.</span> <span class="nav-text">docker</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduce"><span class="nav-number">1.1.</span> <span class="nav-text">Introduce</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Question"><span class="nav-number">1.2.</span> <span class="nav-text">Question</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#docker"><span class="nav-number">1.</span> <span class="nav-text">docker</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduce"><span class="nav-number">1.1.</span> <span class="nav-text">Introduce</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Question"><span class="nav-number">1.2.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Order"><span class="nav-number">1.3.</span> <span class="nav-text">Order</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -120,7 +120,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -192,7 +192,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-09-28 15:28:03" itemprop="dateModified" datetime="2024-09-28T15:28:03+08:00">2024-09-28</time>
+      <time title="Modified: 2024-09-29 17:20:49" itemprop="dateModified" datetime="2024-09-29T17:20:49+08:00">2024-09-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -214,7 +214,98 @@
     
     
     <div class="post-body" itemprop="articleBody"><h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><h2 id="Introduce"><a href="#Introduce" class="headerlink" title="Introduce"></a>Introduce</h2><p>仅以此记录心得 作为个人复习使用</p>
-<h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2>
+<h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><h2 id="Order"><a href="#Order" class="headerlink" title="Order"></a>Order</h2><p>’‘’通过–help‘’ 查看细节 参数</p>
+<ol>
+<li>检索</li>
+</ol>
+<blockquote>
+<p>docker search</p>
+</blockquote>
+<ol start="2">
+<li><p>下载(或者官方镜像下载)</p>
+<blockquote>
+<p>docker pull</p>
+</blockquote>
+</li>
+<li><p>列表</p>
+<blockquote>
+<p>docker images</p>
+</blockquote>
+</li>
+<li><p>删除镜像</p>
+<blockquote>
+<p>docker rmi</p>
+</blockquote>
+</li>
+<li><p>查看运行容器 运行的容器不能直接删除 除非使用强制删除</p>
+<blockquote>
+<p>docker ps</p>
+</blockquote>
+</li>
+<li><p>启动容器</p>
+<blockquote>
+<p>docker start</p>
+</blockquote>
+</li>
+<li><p>停掉应用</p>
+<blockquote>
+<p>docker stop</p>
+</blockquote>
+</li>
+<li><p>运行容器 可以加参数设置 启动方式 运行在自己环境之内 是隔离的 要向外部访问 需要做端口映射 映射到自己主机 及通过主机访问 </p>
+<blockquote>
+<p>docker run</p>
+<p>-d 后台启动 防止阻塞控制台</p>
+<p>– name 命名 并且不能重名</p>
+<p>-p 端口</p>
+</blockquote>
+</li>
+<li><p>进入容器 修改应用 容器有自己的linux系统 </p>
+<blockquote>
+<p>docker exec</p>
+<p>-it 以交互模式</p>
+<p>&#x2F;bin&#x2F;bash 交互模式控制台</p>
+</blockquote>
+</li>
+<li><p>提交镜像</p>
+<blockquote>
+<p>docker commit 提交镜像</p>
+</blockquote>
+</li>
+<li><p>保存镜像</p>
+<blockquote>
+<p>docker save 保存镜像为文件</p>
+<p>-o 压缩文件名</p>
+</blockquote>
+</li>
+<li><p>加载镜像</p>
+<blockquote>
+<p>docker load</p>
+<p>-i 压缩包</p>
+</blockquote>
+</li>
+<li><p>分享社区</p>
+<blockquote>
+<p>docker login</p>
+</blockquote>
+</li>
+<li><p>命名</p>
+<blockquote>
+<p>docker</p>
+</blockquote>
+</li>
+<li><p>ci</p>
+<blockquote>
+<p>docker </p>
+</blockquote>
+</li>
+<li><p>改名</p>
+<blockquote>
+<p>docker tag</p>
+</blockquote>
+</li>
+</ol>
+
     </div>
 
     
