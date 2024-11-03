@@ -27,7 +27,7 @@
 <meta property="og:description" content="dockerIntroduce仅以此记录心得 作为个人复习使用 QuestionOrder’‘’通过–help‘’ 查看细节 参数  检索  docker search   下载(或者官方镜像下载)  docker pull   列表  docker images   删除镜像  docker rmi   查看运行容器 运行的容器不能直接删除 除非使用强制删除  docker ps   启动容器">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-09-24T12:03:10.000Z">
-<meta property="article:modified_time" content="2024-09-30T08:20:48.292Z">
+<meta property="article:modified_time" content="2024-10-15T13:25:50.408Z">
 <meta property="article:author" content="HeDingXian">
 <meta property="article:tag" content="docker">
 <meta property="article:tag" content="linux">
@@ -107,7 +107,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#docker"><span class="nav-number">1.</span> <span class="nav-text">docker</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduce"><span class="nav-number">1.1.</span> <span class="nav-text">Introduce</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Question"><span class="nav-number">1.2.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Order"><span class="nav-number">1.3.</span> <span class="nav-text">Order</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#docker"><span class="nav-number">1.</span> <span class="nav-text">docker</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduce"><span class="nav-number">1.1.</span> <span class="nav-text">Introduce</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Question"><span class="nav-number">1.2.</span> <span class="nav-text">Question</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Order"><span class="nav-number">1.3.</span> <span class="nav-text">Order</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Update"><span class="nav-number">1.4.</span> <span class="nav-text">Update</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -120,7 +120,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -129,7 +129,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -192,7 +192,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-09-30 16:20:48" itemprop="dateModified" datetime="2024-09-30T16:20:48+08:00">2024-09-30</time>
+      <time title="Modified: 2024-10-15 21:25:50" itemprop="dateModified" datetime="2024-10-15T21:25:50+08:00">2024-10-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -309,7 +309,39 @@
 <p>chmod +x &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose</p>
 </blockquote>
 </li>
+<li><p>挂载和卷映射</p>
+<blockquote>
+<p>docker volume ls # 查看数据卷<br>docker volume rm # 删除数据卷<br>docker volume inspect # 查看数据卷详情<br>docker volume prune # 删除未使用的数据卷</p>
+</blockquote>
+</li>
+<li><p>查看容器细节 </p>
+<blockquote>
+<p>docker containner inspect 容器名</p>
+</blockquote>
+</li>
+<li><p>容器之间相互访问</p>
+<blockquote>
+<p>容器ip+端口 curl <a target="_blank" rel="noopener" href="http://ip+port/">http://ip+port</a></p>
+</blockquote>
+</li>
+<li><p>创建自动逸网络 实现容器名就是域名ip 直接使用容器名加容器端口就可以访问</p>
+</li>
+<li><p>通过自定义网络运行容器</p>
+</li>
 </ol>
+<h2 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h2><p>你提到的路径和文件优先级的规则是Docker Compose的标准行为。当你运行<code>docker compose</code>命令时，Compose 会在当前工作目录中按以下优先顺序寻找配置文件：</p>
+<ol>
+<li><strong>compose.yaml</strong>（首选）</li>
+<li><strong>compose.yml</strong></li>
+</ol>
+<p>这两个是推荐的文件命名规则。如果这两个文件都存在，Docker Compose 会优先选择 <strong>compose.yaml</strong>，因为这是 Docker Compose 规范的最新标准。</p>
+<p>此外，为了向后兼容较早版本的 Compose，Compose 还会支持以下文件名：</p>
+<ol>
+<li><strong>docker-compose.yaml</strong></li>
+<li><strong>docker-compose.yml</strong></li>
+</ol>
+<p>如果你的项目中同时存在 <code>compose.yaml</code> 和 <code>docker-compose.yaml</code>，系统也会优先选择 <code>compose.yaml</code>，因为它是最新的规范。</p>
+<p>这个机制确保了项目的配置文件可以兼容不同版本的 Docker Compose，同时遵循最新的命名规范。</p>
 
     </div>
 

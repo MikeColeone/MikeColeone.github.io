@@ -27,7 +27,7 @@
 <meta property="og:description" content="spring帮助管理组件 可复用的java类 写配置,ioc读取配置文件，利用反射技术实现创建对象（控制反转） 依赖注入（di）(dependency injection):一个对象注入到另一个对象内 实现内部注入 实现对象直接的解耦 接口 BeanFactory —-&gt;规定ioc容器的基本动作（基本接口） ApplicationContext—&gt;拓展动作（继承自BeanFactory">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-09-25T06:10:21.000Z">
-<meta property="article:modified_time" content="2024-09-28T08:14:52.654Z">
+<meta property="article:modified_time" content="2024-10-17T11:00:47.676Z">
 <meta property="article:author" content="HeDingXian">
 <meta name="twitter:card" content="summary">
 
@@ -104,7 +104,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#spring"><span class="nav-number">1.</span> <span class="nav-text">spring</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.1.</span> <span class="nav-text">步骤</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#spring"><span class="nav-number">1.</span> <span class="nav-text">spring</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.1.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Value"><span class="nav-number">1.2.</span> <span class="nav-text">@Value</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PropertySource-%E2%80%9Cclasspath-%E7%B1%BB%E8%B7%AF%E5%BE%84%E2%80%9D"><span class="nav-number">1.3.</span> <span class="nav-text">@PropertySource(“classpath:类路径”)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Profile"><span class="nav-number">1.4.</span> <span class="nav-text">@Profile</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AOP"><span class="nav-number">1.5.</span> <span class="nav-text">AOP</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -117,7 +117,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -126,7 +126,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -189,7 +189,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-09-28 16:14:52" itemprop="dateModified" datetime="2024-09-28T16:14:52+08:00">2024-09-28</time>
+      <time title="Modified: 2024-10-17 19:00:47" itemprop="dateModified" datetime="2024-10-17T19:00:47+08:00">2024-10-17</time>
     </span>
 
   
@@ -201,7 +201,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="spring"><a href="#spring" class="headerlink" title="spring"></a>spring</h1><p>帮助管理组件 可复用的java类</p>
+    <div class="post-body" itemprop="articleBody"><h1 id="spring"><a href="#spring" class="headerlink" title="spring"></a><a target="_blank" rel="noopener" href="https://spring.io/">spring</a></h1><p>帮助管理组件 可复用的java类</p>
 <p>写配置,ioc读取配置文件，利用反射技术实现创建对象（控制反转）</p>
 <p>依赖注入（di）(dependency injection):一个对象注入到另一个对象内 实现内部注入 实现对象直接的解耦</p>
 <p>接口</p>
@@ -244,7 +244,29 @@
 <p>无参构造函数的配置方法</p>
 <p>spring是高级容器 会由缓存的过程 先创建对象ioc然后赋值di</p>
 <p>根据构造参数的顺序进行 （参数顺序不是使用顺序）</p>
-
+<h2 id="Value"><a href="#Value" class="headerlink" title="@Value"></a>@Value</h2><ol>
+<li><p>直接复制 @Value(“xxx”)</p>
+</li>
+<li><p>从配置文件中取出值 @Value(“${key}”) 或者：默认值 取不到自动赋值默认值</p>
+</li>
+<li><p>Spring表达式语言 或者算术运算  @Value(“#{}”)</p>
+</li>
+</ol>
+<h2 id="PropertySource-“classpath-类路径”"><a href="#PropertySource-“classpath-类路径”" class="headerlink" title="@PropertySource(“classpath:类路径”)"></a>@PropertySource(“classpath:类路径”)</h2><ol>
+<li><p>从自己的包下找</p>
+</li>
+<li><p>classpath:* :所有路径之下找配置</p>
+</li>
+</ol>
+<h2 id="Profile"><a href="#Profile" class="headerlink" title="@Profile"></a>@Profile</h2><ol>
+<li><p>表示 便于切换环境 ：dev test prod(自定义)</p>
+</li>
+<li><p>不标识默认启动default 附加default环境即可</p>
+</li>
+<li><p>配置文件激活环境： spring.profiles.active&#x3D;dev</p>
+</li>
+</ol>
+<h2 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h2>
     </div>
 
     
