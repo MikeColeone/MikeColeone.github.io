@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="在数据库中，使用 EXPLAIN 语句可以帮助你检查查询的性能。它提供了关于查询执行计划的信息，帮助你理解数据库是如何处理特定查询的。以下是如何使用 EXPLAIN 以及它的主要组成部分： 使用 EXPLAIN在 SQL 查询前加上 EXPLAIN，例如： 1EXPLAIN SELECT * FROM myUser WHERE teacherId &#x3D; &#x27;some_id&#x27;;  这">
+<meta property="og:type" content="article">
+<meta property="og:title" content="explain">
+<meta property="og:url" content="http://example.com/explain/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在数据库中，使用 EXPLAIN 语句可以帮助你检查查询的性能。它提供了关于查询执行计划的信息，帮助你理解数据库是如何处理特定查询的。以下是如何使用 EXPLAIN 以及它的主要组成部分： 使用 EXPLAIN在 SQL 查询前加上 EXPLAIN，例如： 1EXPLAIN SELECT * FROM myUser WHERE teacherId &#x3D; &#x27;some_id&#x27;;  这">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-11-03T13:29:51.000Z">
+<meta property="article:modified_time" content="2024-11-03T13:30:04.019Z">
+<meta property="article:author" content="HeDingXian">
+<meta property="article:tag" content="jdbc">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/explain/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/explain/","path":"explain/","title":"explain"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>explain | Hexo</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-EXPLAIN"><span class="nav-number">1.</span> <span class="nav-text">使用 EXPLAIN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86"><span class="nav-number">2.</span> <span class="nav-text">主要组成部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E5%AD%90"><span class="nav-number">3.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90%E7%BB%93%E6%9E%9C"><span class="nav-number">4.</span> <span class="nav-text">分析结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">HeDingXian</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/explain/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="HeDingXian">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="explain | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          explain
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-11-03 21:29:51 / Modified: 21:30:04" itemprop="dateCreated datePublished" datetime="2024-11-03T21:29:51+08:00">2024-11-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>在数据库中，使用 <code>EXPLAIN</code> 语句可以帮助你检查查询的性能。它提供了关于查询执行计划的信息，帮助你理解数据库是如何处理特定查询的。以下是如何使用 <code>EXPLAIN</code> 以及它的主要组成部分：</p>
+<h3 id="使用-EXPLAIN"><a href="#使用-EXPLAIN" class="headerlink" title="使用 EXPLAIN"></a>使用 <code>EXPLAIN</code></h3><p>在 SQL 查询前加上 <code>EXPLAIN</code>，例如：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EXPLAIN <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> myUser <span class="keyword">WHERE</span> teacherId <span class="operator">=</span> <span class="string">&#x27;some_id&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这样，你会得到一行结果，其中包含查询的执行计划。</p>
+<h3 id="主要组成部分"><a href="#主要组成部分" class="headerlink" title="主要组成部分"></a>主要组成部分</h3><ol>
+<li><p><strong>id</strong>：</p>
+<ul>
+<li>查询的标识符，标识每个查询的执行顺序。</li>
+</ul>
+</li>
+<li><p><strong>select_type</strong>：</p>
+<ul>
+<li>查询的类型，比如 <code>SIMPLE</code>（简单查询）、<code>PRIMARY</code>（主查询）、<code>SUBQUERY</code>（子查询）等。</li>
+</ul>
+</li>
+<li><p><strong>table</strong>：</p>
+<ul>
+<li>该行显示查询涉及的表。</li>
+</ul>
+</li>
+<li><p><strong>type</strong>：</p>
+<ul>
+<li>连接类型，表示访问类型。常见的类型包括：<ul>
+<li><code>ALL</code>：全表扫描，效率较低。</li>
+<li><code>index</code>：使用索引，但仍需全表扫描。</li>
+<li><code>range</code>：范围扫描，查询效率较好。</li>
+<li><code>ref</code>：基于索引的查找。</li>
+<li><code>eq_ref</code>：最优的连接类型，通常用于主键或唯一索引。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>possible_keys</strong>：</p>
+<ul>
+<li>查询可以使用的索引列表。</li>
+</ul>
+</li>
+<li><p><strong>key</strong>：</p>
+<ul>
+<li>实际使用的索引。如果为 <code>NULL</code>，表示未使用索引。</li>
+</ul>
+</li>
+<li><p><strong>key_len</strong>：</p>
+<ul>
+<li>使用的索引长度，帮助估算查询的复杂度。</li>
+</ul>
+</li>
+<li><p><strong>ref</strong>：</p>
+<ul>
+<li>显示哪一列或常数与索引一起被使用。</li>
+</ul>
+</li>
+<li><p><strong>rows</strong>：</p>
+<ul>
+<li>估算扫描的行数，帮助评估查询的开销。</li>
+</ul>
+</li>
+<li><p><strong>Extra</strong>：</p>
+<ul>
+<li>额外的信息，可能包含查询的特殊处理情况（如是否使用临时表、文件排序等）。</li>
+</ul>
+</li>
+</ol>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>假设你有以下查询：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EXPLAIN <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> myUser <span class="keyword">WHERE</span> teacherId <span class="operator">=</span> <span class="string">&#x27;123&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>输出可能类似于：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">id | select_type | table   | type | possible_keys | key      | key_len | ref          | rows | Extra</span><br><span class="line">---|-------------|---------|------|---------------|----------|---------|--------------|------|------</span><br><span class="line">1  | SIMPLE      | myUser  | ref  | teacher_index | teacherId| 19      | const        | 10   |</span><br></pre></td></tr></table></figure>
+
+<h3 id="分析结果"><a href="#分析结果" class="headerlink" title="分析结果"></a>分析结果</h3><ul>
+<li><strong>type</strong> 是 <code>ref</code>，说明使用了索引，这通常意味着查询效率较高。</li>
+<li><strong>possible_keys</strong> 显示了可用的索引，而 <strong>key</strong> 显示了实际使用的索引。</li>
+<li><strong>rows</strong> 显示了大约需要扫描的行数，越少越好。</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>通过使用 <code>EXPLAIN</code>，你可以识别出查询的潜在性能问题，优化索引设计，调整查询结构，从而提高查询效率。理解执行计划是数据库性能调优的重要部分。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/jdbc/" rel="tag"># jdbc</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/mysql/" rel="prev" title="mysql">
+                  <i class="fa fa-angle-left"></i> mysql
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/webflux/" rel="next" title="webflux">
+                  webflux <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">HeDingXian</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
