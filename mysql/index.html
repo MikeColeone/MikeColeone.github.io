@@ -194,7 +194,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Sat Nov 02 2024 19:34:24 GMT+0800">2024-11-02 19:34:24</span>
+                <span class="datetime" data-updated="Thu Nov 14 2024 22:41:19 GMT+0800">2024-11-14 22:41:19</span>
             </span>
         
 
@@ -232,6 +232,16 @@
                          <p>数据表的快速查找</p>
 <p>B+树节点大小16kb 叶子节点放所有元素  有序性 从左到右递增  折半查找</p>
 <p> 只做一次磁盘io 定位到叶子节点 </p>
+<h2 id="leetcode"><a href="#leetcode" class="headerlink" title="leetcode"></a>leetcode</h2><ul>
+<li><p><a class="link"   target="_blank" rel="noopener" href="https://leetcode.cn/problems/combine-two-tables/description/" >175. 组合两个表 - 力扣（LeetCode）<i class="fas fa-external-link-alt"></i></a></p>
+<ul>
+<li>总结：　<ul>
+<li>A inner join B：取交集 A left join B：取A全部，B没有对应的值，则为null A right join B：取B全部，A没有对应的值，则为null A full outer join B：取并集，彼此没有对应的值为null 上述4种的对应条件，在on后填写。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
                     
                 </div>
@@ -318,25 +328,110 @@
         </div>
 
         <div class="page-main-content-bottom border-box">
-            
-<footer class="footer border-box">
-    <div class="copyright-info info-item">
-        &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2024
-        
-            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">Keep Team</a>
-        
-    </div>
+            $shields-style-height = 22px
 
-    <div class="theme-info info-item">
-        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
-    </div>
+.footer {
+  display flex
+  flex-direction column
+  align-items center
+  justify-content center
+  padding 1rem 0
+  color var(--text-color-4)
+  font-size 1rem
 
-    
+  a {
+    color var(--text-color-4)
 
-    
+    &:hover {
+      color var(--primary-color)
+    }
 
-    
-</footer>
+    &.no-pointer {
+      pointer-events none
+    }
+  }
+
+
+  .info-item {
+    position relative
+    display flex
+    flex-wrap wrap
+    align-items center
+    justify-content center
+    box-sizing border-box
+    margin 0.2rem 0
+    color var(--text-color-4)
+
+    &.count-info {
+      display flex
+
+      .count-item {
+        &.uv
+        &.pv {
+          display none
+        }
+      }
+    }
+
+
+    &.deploy-info {
+
+      display flex
+
+      a
+      .tooltip {
+        display flex
+        align-items center
+      }
+
+      img {
+        height 1.08rem
+        margin 0 0.4rem
+      }
+    }
+
+
+    &.count-info
+    &.record-info {
+
+      .count-item
+      .record-item {
+        margin-right 15px
+
+        &::before {
+          position absolute
+          top 50%
+          left -10px
+          box-sizing border-box
+          transform translateY(-56%)
+          content '|'
+        }
+
+
+        &:first-child {
+          &::before {
+            display none
+          }
+        }
+
+
+        &:last-child {
+          margin-right 0
+        }
+
+
+        .item-type {
+          margin-right 4px
+        }
+      }
+    }
+  }
+
+
+  .icon-animate {
+    animation heartbeat-animate 1.2s ease-in-out infinite
+  }
+}
 
         </div>
     </div>

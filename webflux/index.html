@@ -194,12 +194,21 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Tue Nov 05 2024 21:33:35 GMT+0800">2024-11-05 21:33:35</span>
+                <span class="datetime" data-updated="Sat Nov 09 2024 22:21:36 GMT+0800">2024-11-09 22:21:36</span>
             </span>
         
 
         
 
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/springboot/">springboot</a></li>
+                        
+                    
+                </ul>
+            </span>
         
 
         
@@ -220,7 +229,10 @@
                     
 
                     
-                         
+                         <p>命令式编程转化成流式编程</p>
+<p>流的创建是相同引用而不是深拷贝，指向的是相同数据的引用 而不是拷贝 而且 流式的引用是惰性求值 知道foreach或者collect的时候才会实际计算和遍历数据 流中每一个元素必须完整走一边所有管道处理之后才能轮到下一个元素</p>
+<p>如果主线程在执行自己代码的时候没有发生阻塞，主线程虽然创建了子线程，但是有可能在子线程结束之前主线程先结束 所以我们要避免该情况的发生</p>
+
                     
                 </div>
 
@@ -228,6 +240,14 @@
 
                 <div class="post-bottom-tags-and-share border-box">
                     <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/springboot/">springboot</a>
+                                    </li>
+                                
+                            </ul>
                         
                     </div>
                     <div>
@@ -298,25 +318,110 @@
         </div>
 
         <div class="page-main-content-bottom border-box">
-            
-<footer class="footer border-box">
-    <div class="copyright-info info-item">
-        &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2024
-        
-            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">Keep Team</a>
-        
-    </div>
+            $shields-style-height = 22px
 
-    <div class="theme-info info-item">
-        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
-    </div>
+.footer {
+  display flex
+  flex-direction column
+  align-items center
+  justify-content center
+  padding 1rem 0
+  color var(--text-color-4)
+  font-size 1rem
 
-    
+  a {
+    color var(--text-color-4)
 
-    
+    &:hover {
+      color var(--primary-color)
+    }
 
-    
-</footer>
+    &.no-pointer {
+      pointer-events none
+    }
+  }
+
+
+  .info-item {
+    position relative
+    display flex
+    flex-wrap wrap
+    align-items center
+    justify-content center
+    box-sizing border-box
+    margin 0.2rem 0
+    color var(--text-color-4)
+
+    &.count-info {
+      display flex
+
+      .count-item {
+        &.uv
+        &.pv {
+          display none
+        }
+      }
+    }
+
+
+    &.deploy-info {
+
+      display flex
+
+      a
+      .tooltip {
+        display flex
+        align-items center
+      }
+
+      img {
+        height 1.08rem
+        margin 0 0.4rem
+      }
+    }
+
+
+    &.count-info
+    &.record-info {
+
+      .count-item
+      .record-item {
+        margin-right 15px
+
+        &::before {
+          position absolute
+          top 50%
+          left -10px
+          box-sizing border-box
+          transform translateY(-56%)
+          content '|'
+        }
+
+
+        &:first-child {
+          &::before {
+            display none
+          }
+        }
+
+
+        &:last-child {
+          margin-right 0
+        }
+
+
+        .item-type {
+          margin-right 4px
+        }
+      }
+    }
+  }
+
+
+  .icon-animate {
+    animation heartbeat-animate 1.2s ease-in-out infinite
+  }
+}
 
         </div>
     </div>

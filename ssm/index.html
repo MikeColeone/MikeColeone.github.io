@@ -194,7 +194,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Thu Oct 17 2024 19:00:47 GMT+0800">2024-10-17 19:00:47</span>
+                <span class="datetime" data-updated="Mon Nov 11 2024 19:38:26 GMT+0800">2024-11-11 19:38:26</span>
             </span>
         
 
@@ -220,7 +220,7 @@
                     
 
                     
-                         <h1 id="spring"><a href="#spring" class="headerlink" title="spring"></a><a target="_blank" rel="noopener" href="https://spring.io/">spring</a></h1><p>帮助管理组件 可复用的java类</p>
+                         <h1 id="spring"><a href="#spring" class="headerlink" title="spring"></a><a class="link"   target="_blank" rel="noopener" href="https://spring.io/" >spring<i class="fas fa-external-link-alt"></i></a></h1><p>帮助管理组件 可复用的java类</p>
 <p>写配置,ioc读取配置文件，利用反射技术实现创建对象（控制反转）</p>
 <p>依赖注入（di）(dependency injection):一个对象注入到另一个对象内 实现内部注入 实现对象直接的解耦</p>
 <p>接口</p>
@@ -285,7 +285,21 @@
 <li><p>配置文件激活环境： spring.profiles.active&#x3D;dev</p>
 </li>
 </ol>
-<h2 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h2>
+<h2 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h2><h1 id="Tech"><a href="#Tech" class="headerlink" title="Tech"></a>Tech</h1><ol>
+<li><p>既然@Data包括@RequiredArgsConstructor为什么不所有情况都使用该注解？</p>
+<ul>
+<li><p>需要控制字段的 <code>setter</code> 方法，或者希望字段保持不可变。</p>
+</li>
+<li><p>需要自定义 <code>equals</code> 或 <code>hashCode</code> 方法的实现。</p>
+</li>
+<li><p>需要避免生成不必要的 <code>toString</code> 方法或不想暴露敏感信息。</p>
+</li>
+<li><p>需要自定义构造函数。</p>
+</li>
+</ul>
+</li>
+</ol>
+
                     
                 </div>
 
@@ -363,25 +377,110 @@
         </div>
 
         <div class="page-main-content-bottom border-box">
-            
-<footer class="footer border-box">
-    <div class="copyright-info info-item">
-        &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2024
-        
-            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">Keep Team</a>
-        
-    </div>
+            $shields-style-height = 22px
 
-    <div class="theme-info info-item">
-        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
-    </div>
+.footer {
+  display flex
+  flex-direction column
+  align-items center
+  justify-content center
+  padding 1rem 0
+  color var(--text-color-4)
+  font-size 1rem
 
-    
+  a {
+    color var(--text-color-4)
 
-    
+    &:hover {
+      color var(--primary-color)
+    }
 
-    
-</footer>
+    &.no-pointer {
+      pointer-events none
+    }
+  }
+
+
+  .info-item {
+    position relative
+    display flex
+    flex-wrap wrap
+    align-items center
+    justify-content center
+    box-sizing border-box
+    margin 0.2rem 0
+    color var(--text-color-4)
+
+    &.count-info {
+      display flex
+
+      .count-item {
+        &.uv
+        &.pv {
+          display none
+        }
+      }
+    }
+
+
+    &.deploy-info {
+
+      display flex
+
+      a
+      .tooltip {
+        display flex
+        align-items center
+      }
+
+      img {
+        height 1.08rem
+        margin 0 0.4rem
+      }
+    }
+
+
+    &.count-info
+    &.record-info {
+
+      .count-item
+      .record-item {
+        margin-right 15px
+
+        &::before {
+          position absolute
+          top 50%
+          left -10px
+          box-sizing border-box
+          transform translateY(-56%)
+          content '|'
+        }
+
+
+        &:first-child {
+          &::before {
+            display none
+          }
+        }
+
+
+        &:last-child {
+          margin-right 0
+        }
+
+
+        .item-type {
+          margin-right 4px
+        }
+      }
+    }
+  }
+
+
+  .icon-animate {
+    animation heartbeat-animate 1.2s ease-in-out infinite
+  }
+}
 
         </div>
     </div>
