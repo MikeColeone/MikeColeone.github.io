@@ -194,7 +194,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Thu Nov 14 2024 22:41:19 GMT+0800">2024-11-14 22:41:19</span>
+                <span class="datetime" data-updated="Fri Nov 15 2024 02:01:24 GMT+0800">2024-11-15 02:01:24</span>
             </span>
         
 
@@ -235,10 +235,22 @@
 <h2 id="leetcode"><a href="#leetcode" class="headerlink" title="leetcode"></a>leetcode</h2><ul>
 <li><p><a class="link"   target="_blank" rel="noopener" href="https://leetcode.cn/problems/combine-two-tables/description/" >175. 组合两个表 - 力扣（LeetCode）<i class="fas fa-external-link-alt"></i></a></p>
 <ul>
-<li>总结：　<ul>
-<li>A inner join B：取交集 A left join B：取A全部，B没有对应的值，则为null A right join B：取B全部，A没有对应的值，则为null A full outer join B：取并集，彼此没有对应的值为null 上述4种的对应条件，在on后填写。</li>
+<li><strong>INNER JOIN</strong>：仅匹配的记录。</li>
+<li><strong>LEFT JOIN</strong>：保留左表所有记录。（及左边字段为空的时候依然保留右表数据）</li>
+<li><strong>RIGHT JOIN</strong>：保留右表所有记录。</li>
+<li><strong>FULL JOIN</strong>：保留左右表所有记录（需要用 <code>UNION</code> 实现）。</li>
+<li><strong>CROSS JOIN</strong>：生成笛卡尔积。</li>
 </ul>
 </li>
+<li><p>[<a class="link"   target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-customer-referee/" >584. 寻找用户推荐人<i class="fas fa-external-link-alt"></i></a>]</p>
+<ul>
+<li><p>MySQL 使用三值逻辑 —— TRUE, FALSE 和 UNKNOWN。任何与 NULL 值进行的比较都会与第三种值 UNKNOWN 做比较。这个“任何值”包括 NULL 本身！这就是为什么 MySQL 提供 IS NULL 和 IS NOT NULL 两种操作来对 NULL 特殊判断。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 判空标准写法<span class="keyword">NULL</span>不是空值 而是未知值</span><br><span class="line">id <span class="keyword">is</span> <span class="keyword">NULL</span></span><br><span class="line"># 是错误的</span><br><span class="line">id <span class="operator">=</span>  <span class="keyword">NULL</span> </span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>[<a class="link"   target="_blank" rel="noopener" href="https://leetcode.cn/problems/replace-employee-id-with-the-unique-identifier/description/?envType=study-plan-v2&envId=sql-free-50" >1378. 使用唯一标识码替换员工ID - 力扣（LeetCode）<i class="fas fa-external-link-alt"></i></a>]</p>
+<ul>
+<li>为什么selects顺序不同，执行速度不同？</li>
 </ul>
 </li>
 </ul>
@@ -328,110 +340,25 @@
         </div>
 
         <div class="page-main-content-bottom border-box">
-            $shields-style-height = 22px
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+        &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2024
+        
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">Keep Team</a>
+        
+    </div>
 
-.footer {
-  display flex
-  flex-direction column
-  align-items center
-  justify-content center
-  padding 1rem 0
-  color var(--text-color-4)
-  font-size 1rem
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
 
-  a {
-    color var(--text-color-4)
+    
 
-    &:hover {
-      color var(--primary-color)
-    }
+    
 
-    &.no-pointer {
-      pointer-events none
-    }
-  }
-
-
-  .info-item {
-    position relative
-    display flex
-    flex-wrap wrap
-    align-items center
-    justify-content center
-    box-sizing border-box
-    margin 0.2rem 0
-    color var(--text-color-4)
-
-    &.count-info {
-      display flex
-
-      .count-item {
-        &.uv
-        &.pv {
-          display none
-        }
-      }
-    }
-
-
-    &.deploy-info {
-
-      display flex
-
-      a
-      .tooltip {
-        display flex
-        align-items center
-      }
-
-      img {
-        height 1.08rem
-        margin 0 0.4rem
-      }
-    }
-
-
-    &.count-info
-    &.record-info {
-
-      .count-item
-      .record-item {
-        margin-right 15px
-
-        &::before {
-          position absolute
-          top 50%
-          left -10px
-          box-sizing border-box
-          transform translateY(-56%)
-          content '|'
-        }
-
-
-        &:first-child {
-          &::before {
-            display none
-          }
-        }
-
-
-        &:last-child {
-          margin-right 0
-        }
-
-
-        .item-type {
-          margin-right 4px
-        }
-      }
-    }
-  }
-
-
-  .icon-animate {
-    animation heartbeat-animate 1.2s ease-in-out infinite
-  }
-}
+    
+</footer>
 
         </div>
     </div>
