@@ -9,7 +9,7 @@
     
     <title>
         
-            百度面经 |
+            any和unknown |
         
         Keep Theme
     </title>
@@ -161,7 +161,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        百度面经
+                        any和unknown
                     </div>
                 
 
@@ -189,12 +189,12 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2024-11-18 20:30:57</span>
+                <span class="datetime">2024-12-04 19:12:59</span>
             </span>
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Tue Nov 19 2024 08:47:52 GMT+0800">2024-11-19 08:47:52</span>
+                <span class="datetime" data-updated="Wed Dec 04 2024 19:13:45 GMT+0800">2024-12-04 19:13:45</span>
             </span>
         
 
@@ -220,268 +220,63 @@
                     
 
                     
-                         <ol>
-<li><p>flex布局</p>
+                         <p>在 TypeScript 中，<code>unknown</code> 和 <code>any</code> 都是表示“任何类型”的类型，但它们之间有一些重要的区别，主要体现在类型安全性和用途上。</p>
+<h3 id="1-any-类型"><a href="#1-any-类型" class="headerlink" title="1. any 类型"></a>1. <strong><code>any</code> 类型</strong></h3><p><code>any</code> 类型表示任何类型，它允许你对任何类型的值执行任何操作，而不进行类型检查。使用 <code>any</code> 类型的变量可以自由地进行类型转换、赋值、调用方法等操作，TypeScript 会跳过类型检查。</p>
+<p><strong>特点：</strong></p>
 <ul>
-<li><p>布局的传统解决方案，基于<a class="link"   target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/box_model" >盒状模型<i class="fas fa-external-link-alt"></i></a>，依赖 <a class="link"   target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/display" >display<i class="fas fa-external-link-alt"></i></a>属性 + <a class="link"   target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/position" >position<i class="fas fa-external-link-alt"></i></a>属性 + <a class="link"   target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/float" >float<i class="fas fa-external-link-alt"></i></a>属性。它对于那些特殊布局非常不方便，比如，<a class="link"   target="_blank" rel="noopener" href="https://css-tricks.com/centering-css-complete-guide/" >垂直居中<i class="fas fa-external-link-alt"></i></a>就不容易实现。</p>
-</li>
-<li><p>flex布局是弹性布局，为盒装模型提供了最大的灵活性 任何容器都可以声明弹性布局 块级元素 行内元素 都可以是声明为flex布局</p>
-</li>
-<li><p>flex容器和flex项目 容器默认存在两个轴 一个主轴 一个交叉轴 主轴的开始位置main end,交叉轴成为cross main</p>
-</li>
-<li><p>六个属性设置在容器上 </p>
+<li><code>any</code> 允许进行任何类型的操作，不会抛出错误。</li>
+<li>使用 <code>any</code> 会丧失类型检查的优势，可能导致潜在的错误。</li>
+</ul>
+<p><strong>例子：</strong></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">value</span>: <span class="built_in">any</span> = <span class="number">42</span>;</span><br><span class="line">value = <span class="string">&quot;Hello&quot;</span>; <span class="comment">// 允许改变类型</span></span><br><span class="line">value.<span class="title function_">someMethod</span>(); <span class="comment">// 不会报错，尽管可能会抛出运行时错误</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-unknown-类型"><a href="#2-unknown-类型" class="headerlink" title="2. unknown 类型"></a>2. <strong><code>unknown</code> 类型</strong></h3><p><code>unknown</code> 类型是 TypeScript 3.0 引入的，它表示“未知类型”。与 <code>any</code> 不同，<code>unknown</code> 是一种更安全的类型，意味着你不能对 <code>unknown</code> 类型的值进行任何操作，直到你通过某种方式确定它的实际类型。</p>
+<p><strong>特点：</strong></p>
 <ul>
-<li><p>flex-direction 决定主轴方向 row | row-reverse | column | column-reverse </p>
-</li>
-<li><p>flex-wrap 一条轴线是否换行 nowrap  wrap-reverse:换行，且第一行在下方 不换行就自动调整</p>
-</li>
-<li><p>flex-flow 上面两个属性的缩写 ，默认不换行 沿着主轴排序</p>
-</li>
-<li><p>justify-content(主轴对齐方式) flex-start | flex-end |center | space-between | space-arround</p>
-</li>
-<li><p>align-items(交叉轴对齐方式)  flex-start | flex&#x3D;end | center | baseline(项目的的第一行文字对齐) | stretch</p>
-</li>
+<li><code>unknown</code> 类型的值需要在使用之前进行类型检查或类型断言。</li>
+<li>使用 <code>unknown</code> 类型时，TypeScript 会进行更多的类型安全检查，减少运行时错误的风险。</li>
 </ul>
-</li>
-<li><p>六个属性在项目上</p>
-<ul>
-<li><p>order 定义项目的排列顺序 数值越小排列越靠前 默认值为0</p>
-</li>
-<li><p>flex: flex-grow(按照剩余空间放大 默认0 ) flex-shrink(按照剩余空间等比缩小 默认1) flex-basis</p>
-</li>
-<li><p>align-self: 项目交叉轴自己的对齐方式</p>
-</li>
+<p><strong>例子：</strong></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">value</span>: <span class="built_in">unknown</span> = <span class="number">42</span>;</span><br><span class="line">value = <span class="string">&quot;Hello&quot;</span>; <span class="comment">// 允许改变类型</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 错误，不能直接调用方法</span></span><br><span class="line">value.<span class="title function_">someMethod</span>(); <span class="comment">// TypeScript 报错</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 必须先检查类型</span></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> value === <span class="string">&quot;string&quot;</span>) &#123;</span><br><span class="line">  value.<span class="title function_">toUpperCase</span>(); <span class="comment">// 现在可以安全地调用</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-区别总结"><a href="#3-区别总结" class="headerlink" title="3. 区别总结"></a>3. <strong>区别总结</strong></h3><table>
+<thead>
+<tr>
+<th>特性</th>
+<th><code>any</code></th>
+<th><code>unknown</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>类型检查</strong></td>
+<td>跳过类型检查，完全自由</td>
+<td>必须进行类型检查或断言才能使用</td>
+</tr>
+<tr>
+<td><strong>灵活性</strong></td>
+<td>最大灵活性，但可能导致错误</td>
+<td>更安全，需要显式地检查类型</td>
+</tr>
+<tr>
+<td><strong>用法</strong></td>
+<td>用于不关心类型的场景</td>
+<td>用于不确定类型，但希望确保安全</td>
+</tr>
+<tr>
+<td><strong>赋值行为</strong></td>
+<td>任何类型的值都可以赋值给 <code>any</code></td>
+<td>只有通过类型检查后才能使用</td>
+</tr>
+</tbody></table>
+<h3 id="4-何时使用-unknown-和-any？"><a href="#4-何时使用-unknown-和-any？" class="headerlink" title="4. 何时使用 unknown 和 any？"></a>4. <strong>何时使用 <code>unknown</code> 和 <code>any</code>？</strong></h3><ul>
+<li><strong>使用 <code>any</code>：</strong> 当你明确知道某个值的类型不重要，或者你需要将一个值的类型完全“放宽”，不关心其实际类型时，可以使用 <code>any</code>。</li>
+<li><strong>使用 <code>unknown</code>：</strong> 当你不确定某个值的类型，但希望在使用时保持类型安全时，使用 <code>unknown</code>。它迫使你在使用值之前进行类型检查，避免了直接运行时错误。</li>
 </ul>
-</li>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li><code>any</code> 允许你绕过所有类型检查，缺乏安全性。</li>
+<li><code>unknown</code> 要求你显式地检查或断言类型，确保类型安全。</li>
 </ul>
-</li>
-<li><p>跨域请求</p>
-<ul>
-<li><p>因为浏览器的同源策略，限制了从一个源加载的页面与另一个不同源的资源之间的交互 为了保护用户数据 防止网站未经用户通过访问敏感信息 同源必须是协议相同 域名相同 端口相同 防止网站伪造用户身份 或者从第三方源加载窃取用户信息</p>
-</li>
-<li><p>如何解决跨域问题？</p>
-<ul>
-<li><p>后端设置跨域访问 配置Acess-Ctrol-Allow-Origin 响应头  在webConfig配置类中重写addCorsMapping方法</p>
-</li>
-<li><p>通过代理服务器转发解决跨域问题</p>
-</li>
-<li><p>Node.js环境使用cores中间件</p>
-</li>
-<li><p>极端的方法可以禁用同源策略</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>vue3区分vue2</p>
-<ul>
-<li><p>选项式api到组合式api 逻辑上更加聚合</p>
-</li>
-<li><p>生命周期移除create 和 beforecreated钩子函数 引入了setup狗子</p>
-</li>
-<li><p>template标签可以不包在一个跟”<div/>“标签</p>
-</li>
-<li><p>vue2响应式系统通过Object.definePrperty()实现响应式结构</p>
-</li>
-<li><p>vue3通过proxy实现 可以代理整个对象 提升性能增添功能</p>
-</li>
-<li><p>优化编译器，更新组件渲染算法 支持逻辑复用 减少了打包体积</p>
-</li>
-</ul>
-</li>
-<li><p>vuex和pinia作用</p>
-<ul>
-<li>状态管理</li>
-</ul>
-</li>
-<li><p>ES6新特性</p>
-<ul>
-<li><p>块级作用域： let 和 const </p>
-</li>
-<li><p>模板字符串</p>
-</li>
-<li><p>解构赋值</p>
-</li>
-<li><p>默认参数</p>
-</li>
-<li><p>展开运算符（…） 和剩余参数</p>
-<ul>
-<li><p>展开运算符</p>
-</li>
-<li><p>剩余参数</p>
-</li>
-</ul>
-</li>
-<li><p>引入导入导出模块</p>
-</li>
-<li><p>提供更直观的面向对象方法</p>
-</li>
-<li><p>引入promise ,简化异步操作的回调和管理</p>
-</li>
-<li><p>Map和Set的数据结构</p>
-</li>
-<li><p>for…of循环 类似for x : nums</p>
-</li>
-</ul>
-</li>
-<li><p>怎么判断一个变量是不是对象?</p>
-<ul>
-<li><p>typeof判断</p>
-</li>
-<li><p>Object构造函数 x.constructor &#x3D;&#x3D;&#x3D; Object</p>
-</li>
-</ul>
-</li>
-<li><p>虚拟dom</p>
-<ul>
-<li>是js对象的抽象表示，本质描述真实的dom结构，包含tag,props，children子节点属性，vue虚拟dom更加适合数据的频繁变化，同时拥有跨平台性如浏览器 服务器， 开发者不需要关心dom树的变化，只需要关心数据就行了，虚拟dom是一个VNode对象，假设真实的dom是一个真实的书，虚拟的dom就是一个影印件，标注需要修改的部分，然后同步到书上，减少不必要的撕撰动作</li>
-</ul>
-</li>
-<li><p>&#x3D;&#x3D;&#x3D;和&#x3D;&#x3D;严格比较和宽松比较</p>
-<ul>
-<li>后者先执行类型转换，在进行比，前者直接严格比较不需要类型转换 根据编码的严谨性一般来说推荐严格比较 特殊情况如果出现null undefined是否相等时可以使用&#x3D;&#x3D; 在宽松比较的情况下被认为是相等的</li>
-</ul>
-</li>
-<li><p>发异步请求都有哪些方法?比如我想发一个业务请求, 用什么方法?</p>
-<ul>
-<li><p>jquery提供的异步请求方法，可以发送get,post请求，他的方法的参数是一个对象，对象有一些属性，比如说url, 发送请求的类型，get post之类，然后处理成功或者失败的回调函数（被传为另一个函数的函数）</p>
-</li>
-<li><p>fetch API是现代请求的一个api返回一个promise对象，发送一个http请求 并处理相应，fetch这个方法是有两个参数，参数是发送请求的路径，和一个对象，对象包括请求头，请求头来声明请求体的格式Content-type，比如json格式，纯文本格式等等,然后调用then来处理fetch返回的promise对象的结果，再处理返回的数据 然后通过catch捕获到错误，then会返回一个promise,catch来捕获任何可能发生的错误，超时，网络连接失败，json解析问题，拿到错误怎么处理 可以显示信息，或者记录到日志打印出来，方便我们开发的时候调试</p>
-</li>
-</ul>
-</li>
-<li><p>.如何取消一个业务请求?</p>
-<ul>
-<li><p>使用AbortController取消请求，fetch本身不提供取消请求的机制</p>
-</li>
-<li><p>使用新建xmlHttpRequest()对象 调用abort对象取消</p>
-</li>
-</ul>
-</li>
-<li><p>遍历数组都有哪些方法?</p>
-<ul>
-<li><p>for循环</p>
-</li>
-<li><p>for of </p>
-</li>
-<li><p>for in (下标索引)</p>
-</li>
-<li><p>forEach方法 传入回调函数作为参数</p>
-</li>
-<li><p>map方法 创建map返回一个新数组 参数是一个回调函数 这个回调函数就是操作数组元素 然后返回的是一个新数组 也就是和foreach不同的地方</p>
-</li>
-<li><p>filter返回满足条件的新数组</p>
-</li>
-<li><p>reduce对于数组元素进行累加或者组合操作 计算累计结果 参数是结果和当前元素</p>
-</li>
-<li><p>reduceright这个方法和前者类似  是从数组右边开始遍历</p>
-</li>
-<li><p>some方法 返回一个布尔值 判断数组中是否有元素满足条件</p>
-</li>
-<li><p>every 方法 判断数组中是否所有元素都满足条件</p>
-</li>
-<li><p>find 查询所有符合条件的元素的第一个值</p>
-</li>
-<li><p>findIndex 返回第一个满足条件的属性的索引</p>
-</li>
-<li><p>flatMap 数组的展平操作 使用映射函数 为每一个元素都执行相关的回调</p>
-</li>
-</ul>
-</li>
-<li><p>比如我有一个电话号码, 想要截取后四位, 用js怎么实现?</p>
-<ol>
-<li><p>直接调用slice方法 参数是索引 从索引位置截取字符串</p>
-</li>
-<li><p>直接调用substring方法截取  闭区间 不接受复数索引</p>
-</li>
-</ol>
-</li>
-<li><p>绘制扇形</p>
-<ul>
-<li>background: conic-gradient(…) 参数是渐变区域</li>
-</ul>
-</li>
-<li><p>http协议和https协议</p>
-<ul>
-<li>超文本传输协议 和https安全超文本传输协议都是传输数据的协议 http的数据都是铭文的形式 更容易本篡改 浏览器和web服务器之间的区别 默认端口是80 https默认端口是443 通过ssl&#x2F;tls协议对数据进行加密 确保数据的完整性 适合传递的数据比较敏感的情况 比如网上银行 电子支付 在线购物涉及到资金之类的情况</li>
-</ul>
-</li>
-<li><p>如何判断域名一不一样</p>
-<ul>
-<li><p>直接比较 比较域名的字符串 子域名主域名 顶级域名完全匹配就是匹配</p>
-</li>
-<li><p>将域名解析为IP地址 比较相同的域名是不是解析到相同的ip</p>
-</li>
-<li><p>注意域名是大小写的</p>
-</li>
-</ul>
-</li>
-<li><p>原型链 原型</p>
-<ul>
-<li>每个对象身上都有一个__proto__,表示该对象的原型，__proto__也是一个对象，所以他也有自己的原型__proto__，当访问一个对象身上的方法和属性时，会在对象本身寻找，如果找不到会沿着原型的__proto__继续向上寻找，直到找到object的null。原型链是每个类，构造函数都有一个prototype表示这个类的显式原型，所创建出来的</li>
-<li>实例对象的__proto__都指向这个类的prototype，prototype也是对象，也有它的__proto__,通过修改类的显式原型prototype的__proto__指向另一个类，那么这个类创造的实例对象就可以访问到另一个类身上的属性和方法</li>
-</ul>
-</li>
-<li><p>vue中created和mouted的区别</p>
-<ul>
-<li>组件创建完成就触发 后者挂载到dom就触发 前者实现组件逻辑数据的初始化可以理解调用数据 已经组件方法 但是不能操作dom树 后者可以通过el访问到dom元素 通过$el就能访问到DOM根元素</li>
-</ul>
-</li>
-<li><p>scope是怎么避免样式冲突的</p>
-<ul>
-<li>使用该标签的时候，vue编译器会为当前组件的每一个dom元素添加一个自动成成的属性，唯一属性标识符data-v-xx，作为id，用作选择器范围的标记</li>
-</ul>
-</li>
-<li><p>scope怎么更改子组件样式</p>
-<ul>
-<li>vue提供了一个特殊的深度选择器 可以突破scoped的限制 参数是子组件元素</li>
-</ul>
-</li>
-<li><p>事件循环机制</p>
-<ul>
-<li><p>是js实现异步编程的核心机制，负责协调任务队列，异步操作以及回调函数，js使用任务队列管理异步任务，避免阻塞主线程。</p>
-<ul>
-<li><p>事件循环的大概步骤：</p>
-<ul>
-<li><p>运行主线程同步任务 初始化代码执行成功完成后检查任务队列</p>
-</li>
-<li><p>检查宏任务队列 取出第一个任务执行：什么是宏任务呢，比如setTimeout(回调函数，间隔等待时间),setInterval，，Ajax完成的回调</p>
-</li>
-<li><p>检查微任务队列，执行所有微任务队列 什么是为任务呢 Promise的then catch finally （微服务优先级更高）</p>
-</li>
-<li><p>更新渲染</p>
-</li>
-<li><p>重复循环</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>强缓存和协商缓存</p>
-<ul>
-<li><p>强缓存</p>
-<ul>
-<li><p>无需向服务器发起请求 浏览器直接从本地缓存读取数据</p>
-</li>
-<li><p>没有网络请求 资源加载速度极快</p>
-</li>
-<li><p>指定过期时间 但是受客户端影响 本地时间本篡改 缓存可能失效</p>
-</li>
-</ul>
-</li>
-<li><p>协商缓存</p>
-<ul>
-<li><p>需要和服务器交互，来验证本地缓存是否有效</p>
-</li>
-<li><p>有效服务器返回状态码</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
+<p>在实际项目中，推荐尽量使用 <code>unknown</code> 而不是 <code>any</code>，以减少潜在的错误和提高代码的类型安全性。</p>
 
                     
                 </div>
@@ -502,31 +297,15 @@
                 
                     <div class="post-nav border-box">
                         
-                            <div class="prev-post">
-                                <a class="prev"
-                                   rel="prev"
-                                   href="/any%E5%92%8Cunknown/"
-                                   title="any和unknown"
-                                >
-                                    <span class="left arrow-icon flex-center">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">any和unknown</span>
-                                        <span class="post-nav-item">Prev posts</span>
-                                    </span>
-                                </a>
-                            </div>
-                        
                         
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/MySQL-0/"
-                                   title="MySQL"
+                                   href="/%E7%99%BE%E5%BA%A6%E9%9D%A2%E7%BB%8F/"
+                                   title="百度面经"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">MySQL</span>
+                                        <span class="post-nav-title-item text-ellipsis">百度面经</span>
                                         <span class="post-nav-item">Next posts</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
