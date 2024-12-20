@@ -9,7 +9,7 @@
     
     <title>
         
-            Yates Shuffle |
+            比较器 |
         
         Keep Theme
     </title>
@@ -161,7 +161,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        Yates Shuffle
+                        比较器
                     </div>
                 
 
@@ -189,12 +189,12 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2024-10-10 21:05:17</span>
+                <span class="datetime">2024-12-20 17:39:50</span>
             </span>
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Thu Oct 10 2024 22:12:25 GMT+0800">2024-10-10 22:12:25</span>
+                <span class="datetime" data-updated="Fri Dec 20 2024 17:40:12 GMT+0800">2024-12-20 17:40:12</span>
             </span>
         
 
@@ -220,35 +220,38 @@
                     
 
                     
-                         <h1 id="Yates-Shuffle"><a href="#Yates-Shuffle" class="headerlink" title="Yates Shuffle"></a>Yates Shuffle</h1><p>随机洗牌算法</p>
-<ol>
-<li><p>基本思想：从原数组取从未渠道的数字到新数组</p>
+                         <p>在比较器 <code>Comparator</code> 中，返回 <strong>负数</strong>、<strong>正数</strong> 和 <strong>0</strong> 的含义是用于表示排序的优先级。<strong>负数并不代表数值大小，而是决定元素的相对排序顺序</strong>。</p>
+<hr>
+<h3 id="比较器的返回值含义"><a href="#比较器的返回值含义" class="headerlink" title="比较器的返回值含义"></a><strong>比较器的返回值含义</strong></h3><ol>
+<li><p><strong>返回负数</strong> (<code>&lt; 0</code>)<br>表示第一个参数 (<code>a</code>) 应排在第二个参数 (<code>b</code>) <strong>前面</strong>。</p>
 </li>
-<li><p>步骤</p>
-<ol>
-<li><p>初始化原始数组新数组 n</p>
+<li><p><strong>返回正数</strong> (<code>&gt; 0</code>)<br>表示第二个参数 (<code>b</code>) 应排在第一个参数 (<code>a</code>) <strong>前面</strong>。</p>
 </li>
-<li><p>从还没处理的数组（k）随机产生一个[0,k)之间的数字p</p>
-</li>
-<li><p>从剩下的k个数字中去除第p个数字</p>
-</li>
-<li><p>重复步骤</p>
+<li><p><strong>返回 0</strong><br>表示 <code>a</code> 和 <code>b</code> 排序顺序不变（两者相等）。</p>
 </li>
 </ol>
-</li>
-<li><p>随机性验证：</p>
-<ol>
-<li><p><strong>第一步</strong>：从 <code>n</code> 个元素中选一个进行交换，每个元素被选中的概率是 <code>1/n</code>。</p>
-</li>
-<li><p><strong>第二步</strong>：从 <code>n-1</code> 个元素中选一个进行交换，每个元素被选中的概率是 <code>1/(n-1)</code>。</p>
-</li>
-<li><p>依此类推，直到最后剩下的一个元素。</p>
-</li>
-</ol>
-<p>最终，每个元素出现在数组任意一个位置的概率是：1&#x2F;n!</p>
-<p>发现是分母是全排列的次数</p>
-</li>
-</ol>
+<hr>
+<h3 id="复数-正数的“数值大小”不影响优先级"><a href="#复数-正数的“数值大小”不影响优先级" class="headerlink" title="复数&#x2F;正数的“数值大小”不影响优先级"></a><strong>复数&#x2F;正数的“数值大小”不影响优先级</strong></h3><p>在比较器的实现中，返回值只看 <strong>正负号</strong>，而不关心具体数值的大小。</p>
+<p><strong>示例</strong>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Comparator&lt;Integer&gt; comparator = (a, b) -&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> b - a; <span class="comment">// 实现降序排序</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>假设 <code>a = 2</code> 和 <code>b = 5</code>：</p>
+<ul>
+<li>计算 <code>b - a</code>，结果为 <strong>3</strong>（正数）。<br>这表示 <code>b</code>（5）排在 <code>a</code>（2）前面。</li>
+</ul>
+<p>再假设 <code>a = 5</code> 和 <code>b = 2</code>：</p>
+<ul>
+<li>计算 <code>b - a</code>，结果为 <strong>-3</strong>（负数）。<br>这表示 <code>a</code>（5）排在 <code>b</code>（2）前面。</li>
+</ul>
+<p>无论结果是 <strong>3</strong> 还是 <strong>-3</strong>，比较器只关心 <strong>正负号</strong>，不会因为数值是 <strong>3</strong> 而有更高的“优先级”。</p>
+<hr>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><p>在比较器中：</p>
+<ul>
+<li>返回值的 <strong>正负号</strong> 决定排序顺序。</li>
+<li>返回值的数值（如 <code>3</code> 和 <code>100</code>）不会影响排序的优先级。</li>
+<li>只要是正数，就表示第二个参数优先；只要是负数，就表示第一个参数优先。</li>
+</ul>
+<p>因此，<strong>复数并不表示优先级更高</strong>，它只是表示参数的顺序关系。</p>
 
                     
                 </div>
@@ -269,31 +272,15 @@
                 
                     <div class="post-nav border-box">
                         
-                            <div class="prev-post">
-                                <a class="prev"
-                                   rel="prev"
-                                   href="/ioc/"
-                                   title="ioc"
-                                >
-                                    <span class="left arrow-icon flex-center">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">ioc</span>
-                                        <span class="post-nav-item">Prev posts</span>
-                                    </span>
-                                </a>
-                            </div>
-                        
                         
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/README-md%E6%96%87%E4%BB%B6%E7%9A%84%E7%BC%96%E5%86%99/"
-                                   title="README.md文件的编写"
+                                   href="/git/"
+                                   title="git"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">README.md文件的编写</span>
+                                        <span class="post-nav-title-item text-ellipsis">git</span>
                                         <span class="post-nav-item">Next posts</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
