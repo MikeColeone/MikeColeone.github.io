@@ -9,7 +9,7 @@
     
     <title>
         
-            防抖 |
+            do和vo和dto |
         
         Keep Theme
     </title>
@@ -161,7 +161,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        防抖
+                        do和vo和dto
                     </div>
                 
 
@@ -189,12 +189,12 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2024-10-14 19:14:56</span>
+                <span class="datetime">2025-01-08 23:08:25</span>
             </span>
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Mon Oct 14 2024 19:15:22 GMT+0800">2024-10-14 19:15:22</span>
+                <span class="datetime" data-updated="Wed Jan 08 2025 23:15:22 GMT+0800">2025-01-08 23:15:22</span>
             </span>
         
 
@@ -220,26 +220,9 @@
                     
 
                     
-                         <p><strong>防抖</strong>（Debounce）是一种常见的前端性能优化技术，主要用于控制高频率事件的触发次数，避免因为事件频繁触发而导致的性能问题。防抖的核心思想是：在事件被触发后，一定时间内如果没有再次触发该事件，事件处理函数才会被执行；如果在此时间内再次触发事件，则重新计算延迟时间。</p>
-<h3 id="场景举例"><a href="#场景举例" class="headerlink" title="场景举例"></a>场景举例</h3><ol>
-<li><strong>输入框实时搜索</strong>：用户在输入框中不断输入时，不需要每次输入都发出一次搜索请求，只在用户停止输入后一定时间再发出搜索请求。</li>
-<li><strong>窗口调整大小</strong>：用户调整浏览器窗口大小时频繁触发 <code>resize</code> 事件，可以通过防抖技术只执行最终一次调整后的处理逻辑。</li>
-</ol>
-<h3 id="防抖的实现原理"><a href="#防抖的实现原理" class="headerlink" title="防抖的实现原理"></a>防抖的实现原理</h3><p>防抖主要通过使用 <code>setTimeout</code> 来延迟执行目标函数，并且在每次事件触发时，都会清除上一次的计时器，确保只有在规定时间内没有再次触发事件时才会执行目标函数。</p>
-<h3 id="JavaScript-防抖实现"><a href="#JavaScript-防抖实现" class="headerlink" title="JavaScript 防抖实现"></a>JavaScript 防抖实现</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">debounce</span>(<span class="params">func, wait</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> timeout;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params">...args</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> context = <span class="variable language_">this</span>;</span><br><span class="line">        <span class="built_in">clearTimeout</span>(timeout);</span><br><span class="line">        timeout = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">            func.<span class="title function_">apply</span>(context, args);</span><br><span class="line">        &#125;, wait);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h3><p>假设有一个输入框，用户在输入时进行搜索，可以为 <code>input</code> 事件添加防抖逻辑：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> searchInput = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;search&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">search</span>(<span class="params">query</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`Searching for: <span class="subst">$&#123;query&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> debouncedSearch = <span class="title function_">debounce</span>(<span class="function">(<span class="params">event</span>) =&gt;</span> <span class="title function_">search</span>(event.<span class="property">target</span>.<span class="property">value</span>), <span class="number">500</span>);</span><br><span class="line"></span><br><span class="line">searchInput.<span class="title function_">addEventListener</span>(<span class="string">&#x27;input&#x27;</span>, debouncedSearch);</span><br></pre></td></tr></table></figure>
-
-<p>在上面的例子中，<code>debouncedSearch</code> 函数会在用户停止输入500毫秒后才执行 <code>search</code> 函数，这样可以避免每次输入字符时都触发搜索请求。</p>
-<h3 id="防抖的优势"><a href="#防抖的优势" class="headerlink" title="防抖的优势"></a>防抖的优势</h3><ul>
-<li><strong>减少不必要的处理</strong>：通过防抖可以减少频繁触发的事件所带来的性能消耗，尤其在用户界面中，如滚动、输入等高频事件。</li>
-<li><strong>提高用户体验</strong>：当事件触发后立即响应可能会增加系统负担，防抖可以通过延时优化，减少资源浪费。</li>
-</ul>
-<h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><ul>
-<li><strong>延迟时间设置</strong>：防抖中的延迟时间需要根据场景的实际需求进行调整，过短可能无法起到效果，过长则可能影响用户体验。</li>
-<li><strong>首次执行延迟</strong>：防抖的缺点是会延迟首次事件的处理，因此在某些需要即时响应的场景中需要谨慎使用。</li>
-</ul>
+                         <p>do类就是常说的entity类，和数据库一一对应，一般在DAO层使用，或者service使用</p>
+<p>dto跨层跨服务传输用，比如返给前端时，我不需要完整的实体类，只需要一部分，或者跨表并表查询，就需要重新定义dto类，一般在controller作为接受前端请求或者发送数据时使用，在service层和controller使用</p>
+<p>vo类是entity的子集,vo封装少量的数据便于渲染和显示，一般旨在controller使用</p>
 
                     
                 </div>
@@ -260,31 +243,15 @@
                 
                     <div class="post-nav border-box">
                         
-                            <div class="prev-post">
-                                <a class="prev"
-                                   rel="prev"
-                                   href="/spring-data-jdbc/"
-                                   title="spring-data-jdbc"
-                                >
-                                    <span class="left arrow-icon flex-center">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">spring-data-jdbc</span>
-                                        <span class="post-nav-item">Prev posts</span>
-                                    </span>
-                                </a>
-                            </div>
-                        
                         
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/office/"
-                                   title="office"
+                                   href="/electron/"
+                                   title="electron"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">office</span>
+                                        <span class="post-nav-title-item text-ellipsis">electron</span>
                                         <span class="post-nav-item">Next posts</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
