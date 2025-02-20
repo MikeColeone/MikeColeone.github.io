@@ -194,7 +194,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Sun Dec 15 2024 15:42:00 GMT+0800">2024-12-15 15:42:00</span>
+                <span class="datetime" data-updated="Fri Feb 21 2025 00:27:49 GMT+0800">2025-02-21 00:27:49</span>
             </span>
         
 
@@ -220,7 +220,122 @@
                     
 
                     
-                         
+                         <p>在 Git 中，<code>feat</code>、<code>fix</code> 等通常是 <strong>提交信息（commit message）</strong> 中的前缀，主要用于 <strong>规范化提交信息</strong>，尤其是在团队协作和自动化工具（如 CI&#x2F;CD）中常见。它们通常遵循 <strong>Conventional Commits 规范</strong>。</p>
+<hr>
+<h3 id="🚀-1-feat（Feature）"><a href="#🚀-1-feat（Feature）" class="headerlink" title="🚀 1. feat（Feature）"></a>🚀 1. <code>feat</code>（Feature）</h3><p>表示 <strong>新增功能</strong>，用于添加新的特性或模块。例如：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;feat: 添加用户注册功能&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>🔹 <strong>适用场景</strong>：开发新功能，如新增 API、增加页面等。</p>
+<hr>
+<h3 id="🛠️-2-fix（Bug-Fix）"><a href="#🛠️-2-fix（Bug-Fix）" class="headerlink" title="🛠️ 2. fix（Bug Fix）"></a>🛠️ 2. <code>fix</code>（Bug Fix）</h3><p>表示 <strong>修复 Bug</strong>，用于修正代码错误。例如：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;fix: 修复用户无法登录的 Bug&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>🔹 <strong>适用场景</strong>：修复后端 API 错误、修复前端 UI 问题、修正逻辑错误等。</p>
+<hr>
+<h3 id="📄-3-docs（Documentation）"><a href="#📄-3-docs（Documentation）" class="headerlink" title="📄 3. docs（Documentation）"></a>📄 3. <code>docs</code>（Documentation）</h3><p>表示 <strong>仅修改了文档</strong>，不影响代码逻辑。例如：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;docs: 更新 README 添加使用说明&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>🔹 <strong>适用场景</strong>：修改 <code>README.md</code>、API 文档等。</p>
+<hr>
+<h3 id="🎨-4-style（Code-Style）"><a href="#🎨-4-style（Code-Style）" class="headerlink" title="🎨 4. style（Code Style）"></a>🎨 4. <code>style</code>（Code Style）</h3><p>表示 <strong>代码格式调整</strong>，不涉及功能修改。例如：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;style: 统一代码缩进，调整 ESLint 规则&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>🔹 <strong>适用场景</strong>：修改空格、换行、注释等。</p>
+<hr>
+<h3 id="⚡-5-perf（Performance）"><a href="#⚡-5-perf（Performance）" class="headerlink" title="⚡ 5. perf（Performance）"></a>⚡ 5. <code>perf</code>（Performance）</h3><p>表示 <strong>优化性能</strong>，不影响功能，但提高了效率。例如：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;perf: 优化数据库查询，减少查询次数&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>🔹 <strong>适用场景</strong>：优化 SQL 语句、减少 API 请求、提高代码执行效率等。</p>
+<hr>
+<h3 id="🧪-6-test（Tests）"><a href="#🧪-6-test（Tests）" class="headerlink" title="🧪 6. test（Tests）"></a>🧪 6. <code>test</code>（Tests）</h3><p>表示 <strong>新增或修改测试代码</strong>，例如：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;test: 添加用户注册接口的单元测试&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>🔹 <strong>适用场景</strong>：编写或修改 <code>Jest</code>、<code>JUnit</code>、<code>pytest</code> 等测试。</p>
+<hr>
+<h3 id="🔧-7-chore（Chores）"><a href="#🔧-7-chore（Chores）" class="headerlink" title="🔧 7. chore（Chores）"></a>🔧 7. <code>chore</code>（Chores）</h3><p>表示 <strong>非业务逻辑修改</strong>，比如构建配置、CI&#x2F;CD 变更。例如：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;chore: 更新 .gitignore 文件&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>🔹 <strong>适用场景</strong>：修改 <code>.gitignore</code>、更新 <code>package.json</code> 依赖、调整 GitHub Actions 配置等。</p>
+<hr>
+<h3 id="🚧-8-refactor（Refactoring）"><a href="#🚧-8-refactor（Refactoring）" class="headerlink" title="🚧 8. refactor（Refactoring）"></a>🚧 8. <code>refactor</code>（Refactoring）</h3><p>表示 <strong>重构代码</strong>，不影响功能，但优化了结构。例如：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;refactor: 重构用户注册逻辑，提升可读性&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>🔹 <strong>适用场景</strong>：重构代码，提高可维护性、降低耦合度等。</p>
+<hr>
+<h3 id="🔥-9-revert（Revert）"><a href="#🔥-9-revert（Revert）" class="headerlink" title="🔥 9. revert（Revert）"></a>🔥 9. <code>revert</code>（Revert）</h3><p>表示 <strong>回滚</strong> 之前的提交。例如：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;revert: 回滚错误提交 7a5b23&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>🔹 <strong>适用场景</strong>：恢复误提交的代码。</p>
+<hr>
+<h2 id="📌-总结"><a href="#📌-总结" class="headerlink" title="📌 总结"></a>📌 总结</h2><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>feat</code></td>
+<td>新功能</td>
+<td>添加新模块、新 API</td>
+</tr>
+<tr>
+<td><code>fix</code></td>
+<td>修复 Bug</td>
+<td>解决错误、修复崩溃问题</td>
+</tr>
+<tr>
+<td><code>docs</code></td>
+<td>文档变更</td>
+<td>更新 README、修改 API 文档</td>
+</tr>
+<tr>
+<td><code>style</code></td>
+<td>代码格式</td>
+<td>修改缩进、空格、样式等</td>
+</tr>
+<tr>
+<td><code>perf</code></td>
+<td>性能优化</td>
+<td>提高代码执行效率</td>
+</tr>
+<tr>
+<td><code>test</code></td>
+<td>测试相关</td>
+<td>添加或修改单元测试</td>
+</tr>
+<tr>
+<td><code>chore</code></td>
+<td>构建&#x2F;工具</td>
+<td>CI&#x2F;CD 配置、依赖升级</td>
+</tr>
+<tr>
+<td><code>refactor</code></td>
+<td>代码重构</td>
+<td>结构优化、提高可读性</td>
+</tr>
+<tr>
+<td><code>revert</code></td>
+<td>回滚</td>
+<td>还原错误提交</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="🚀-额外补充：结合-Git-Flow"><a href="#🚀-额外补充：结合-Git-Flow" class="headerlink" title="🚀 额外补充：结合 Git Flow"></a>🚀 额外补充：结合 Git Flow</h3><p>在实际工作流中，可以搭配 <code>git push</code> 使用：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;feat: 新增实验室预约系统的预约功能&quot;</span></span><br><span class="line">git push origin feature/booking</span><br></pre></td></tr></table></figure>
+
+<p>👉 <code>feature/booking</code> 分支表示正在开发 <strong>预约功能</strong>，<code>feat</code> 代表新功能。</p>
+<p>这样，代码审查（Code Review）时，一眼就能看出 <strong>提交的类型和目的</strong>，方便团队协作和自动化部署！</p>
+<p>如果你是用 <strong>GitHub Actions 自动部署</strong>，可以结合这些前缀触发不同的 CI&#x2F;CD 任务，比如：</p>
+<ul>
+<li><code>feat</code> 触发 <strong>前端自动构建</strong></li>
+<li><code>fix</code> 触发 <strong>紧急补丁部署</strong></li>
+<li><code>chore</code> 不触发任何构建</li>
+</ul>
+<hr>
+<p>如果你的团队使用 <strong>Conventional Commits 规范</strong> 或 <strong>Git Flow</strong>，建议严格按照这个格式来写提交信息！💡</p>
+
                     
                 </div>
 
