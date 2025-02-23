@@ -194,7 +194,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Sun Nov 03 2024 21:30:04 GMT+0800">2024-11-03 21:30:04</span>
+                <span class="datetime" data-updated="Fri Feb 21 2025 19:29:24 GMT+0800">2025-02-21 19:29:24</span>
             </span>
         
 
@@ -229,7 +229,7 @@
                     
 
                     
-                         <p>在数据库中，使用 <code>EXPLAIN</code> 语句可以帮助你检查查询的性能。它提供了关于查询执行计划的信息，帮助你理解数据库是如何处理特定查询的。以下是如何使用 <code>EXPLAIN</code> 以及它的主要组成部分：</p>
+                         <p>在数据库中，使用 <code>EXPLAIN</code> 语句可以帮助你检查查询的性能。</p>
 <h3 id="使用-EXPLAIN"><a href="#使用-EXPLAIN" class="headerlink" title="使用 EXPLAIN"></a>使用 <code>EXPLAIN</code></h3><p>在 SQL 查询前加上 <code>EXPLAIN</code>，例如：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EXPLAIN <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> myUser <span class="keyword">WHERE</span> teacherId <span class="operator">=</span> <span class="string">&#x27;some_id&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
@@ -304,7 +304,18 @@
 <li><strong>possible_keys</strong> 显示了可用的索引，而 <strong>key</strong> 显示了实际使用的索引。</li>
 <li><strong>rows</strong> 显示了大约需要扫描的行数，越少越好。</li>
 </ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>通过使用 <code>EXPLAIN</code>，你可以识别出查询的潜在性能问题，优化索引设计，调整查询结构，从而提高查询效率。理解执行计划是数据库性能调优的重要部分。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from message oeder by create_time;</span><br><span class="line">select * from message order by create_time limit 0,10; </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>前者不命中索引create_time 但是后者命中 问原因是什么？</p>
+<ul>
+<li><p>原因 数据量很大的时候 虽然命中索引 但是要所有数据 数据库出发回表操作 数据库优化器认为直接全表扫描比索引成本更低 添加索引后数据库只获取前十条元素 基于索引创建的B+树副本是有序的 进而再回表比全表扫描开销更小 所以选了走索引</p>
+</li>
+<li><p>解决方法： 直接分页或者创建复合索引 不拿所有元素</p>
+</li>
+</ul>
+</li>
+</ul>
 
                     
                 </div>
