@@ -194,7 +194,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Tue Oct 15 2024 21:25:50 GMT+0800">2024-10-15 21:25:50</span>
+                <span class="datetime" data-updated="Wed Feb 26 2025 23:30:30 GMT+0800">2025-02-26 23:30:30</span>
             </span>
         
 
@@ -352,7 +352,7 @@
 </li>
 <li><p>容器之间相互访问</p>
 <blockquote>
-<p>容器ip+端口 curl <a target="_blank" rel="noopener" href="http://ip+port/">http://ip+port</a></p>
+<p>容器ip+端口 curl <a class="link"   target="_blank" rel="noopener" href="http://ip+port/" >http://ip+port<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
 </li>
 <li><p>创建自动逸网络 实现容器名就是域名ip 直接使用容器名加容器端口就可以访问</p>
@@ -373,6 +373,10 @@
 </ol>
 <p>如果你的项目中同时存在 <code>compose.yaml</code> 和 <code>docker-compose.yaml</code>，系统也会优先选择 <code>compose.yaml</code>，因为它是最新的规范。</p>
 <p>这个机制确保了项目的配置文件可以兼容不同版本的 Docker Compose，同时遵循最新的命名规范。</p>
+<p>docker compose -f docker-compose.yml up -d</p>
+<p>而不是</p>
+<p>docker-compose -f docker-compose.yml up -d</p>
+<p><code>docker compose</code> 能运行，说明你的 <code>docker-compose</code> 版本是 <strong>v2</strong>，就需要一直使用 <code>docker compose</code>。</p>
 
                     
                 </div>
