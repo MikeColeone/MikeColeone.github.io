@@ -9,7 +9,7 @@
     
     <title>
         
-            面经 |
+            async/await |
         
         Keep Theme
     </title>
@@ -161,7 +161,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        面经
+                        async/await
                     </div>
                 
 
@@ -189,12 +189,12 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2024-11-18 20:30:57</span>
+                <span class="datetime">2024-09-21 18:54:36</span>
             </span>
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Sat Mar 29 2025 20:51:09 GMT+0800">2025-03-29 20:51:09</span>
+                <span class="datetime" data-updated="Fri Feb 28 2025 17:14:21 GMT+0800">2025-02-28 17:14:21</span>
             </span>
         
 
@@ -220,329 +220,80 @@
                     
 
                     
-                         <ol>
-<li><p>flex布局</p>
+                         <p>下面通过一个简单的例子来通俗地讲解同步、异步、阻塞和非阻塞之间的区别。</p>
+<hr>
+<h3 id="同步与异步"><a href="#同步与异步" class="headerlink" title="同步与异步"></a>同步与异步</h3><ul>
+<li><p><strong>同步</strong>：</p>
 <ul>
-<li><p>布局的传统解决方案，基于<a class="link"   target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/box_model" >盒状模型<i class="fas fa-external-link-alt"></i></a>，依赖 <a class="link"   target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/display" >display<i class="fas fa-external-link-alt"></i></a>属性 + <a class="link"   target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/position" >position<i class="fas fa-external-link-alt"></i></a>属性 + <a class="link"   target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/float" >float<i class="fas fa-external-link-alt"></i></a>属性。它对于那些特殊布局非常不方便，比如，<a class="link"   target="_blank" rel="noopener" href="https://css-tricks.com/centering-css-complete-guide/" >垂直居中<i class="fas fa-external-link-alt"></i></a>就不容易实现。</p>
-</li>
-<li><p>flex布局是弹性布局，为盒装模型提供了最大的灵活性 任何容器都可以声明弹性布局 块级元素 行内元素 都可以是声明为flex布局</p>
-</li>
-<li><p>flex容器和flex项目 容器默认存在两个轴 一个主轴 一个交叉轴 主轴的开始位置main end,交叉轴成为cross main</p>
-</li>
-<li><p>六个属性设置在容器上 </p>
-<ul>
-<li><p>flex-direction 决定主轴方向 row | row-reverse | column | column-reverse </p>
-</li>
-<li><p>flex-wrap 一条轴线是否换行 nowrap  wrap-reverse:换行，且第一行在下方 不换行就自动调整</p>
-</li>
-<li><p>flex-flow 上面两个属性的缩写 ，默认不换行 沿着主轴排序</p>
-</li>
-<li><p>justify-content(主轴对齐方式) flex-start | flex-end |center | space-between | space-arround</p>
-</li>
-<li><p>align-items(交叉轴对齐方式)  flex-start | flex&#x3D;end | center | baseline(项目的的第一行文字对齐) | stretch</p>
-</li>
+<li>就像排队买票，每个人都要按顺序，一个一个来。</li>
+<li>调用方法后，必须等这个方法执行完毕并返回结果，才能继续下一步操作。</li>
+<li>举例：你打电话订餐，电话那头让你等待确认后才挂电话，这就是同步。</li>
 </ul>
 </li>
-<li><p>六个属性在项目上</p>
+<li><p><strong>异步</strong>：</p>
 <ul>
-<li><p>order 定义项目的排列顺序 数值越小排列越靠前 默认值为0</p>
-</li>
-<li><p>flex: flex-grow(按照剩余空间放大 默认0 ) flex-shrink(按照剩余空间等比缩小 默认1) flex-basis</p>
-</li>
-<li><p>align-self: 项目交叉轴自己的对齐方式</p>
-</li>
+<li>就像你在网上下单买票，下单后不需要一直盯着，稍后系统会通知你出票情况。</li>
+<li>调用方法后，不需要等待结果立即返回，而是继续执行其他任务，当任务完成后通过回调、事件或通知的方式告知结果。</li>
+<li>举例：你发了邮件申请订餐，接下来可以做其他事情，等餐厅回复时再处理后续。</li>
 </ul>
 </li>
 </ul>
-</li>
-<li><p>跨域请求</p>
+<hr>
+<h3 id="阻塞与非阻塞"><a href="#阻塞与非阻塞" class="headerlink" title="阻塞与非阻塞"></a>阻塞与非阻塞</h3><ul>
+<li><p><strong>阻塞</strong>：</p>
 <ul>
-<li><p>因为浏览器的同源策略，限制了从一个源加载的页面与另一个不同源的资源之间的交互 为了保护用户数据 防止网站未经用户通过访问敏感信息 同源必须是协议相同 域名相同 端口相同 防止网站伪造用户身份 或者从第三方源加载窃取用户信息</p>
+<li>就像你去排队等车，一旦你站在队里，就不得不一直等车到来，期间你不能去做其他事情。</li>
+<li>在进行 I&#x2F;O 操作时，如果数据还没准备好，调用者会被迫等待，不能执行其它操作。</li>
+<li>举例：在网络编程中，调用 <code>read()</code> 方法，如果数据没有到达，程序会停下来等待数据到达后才能继续。</li>
+</ul>
 </li>
-<li><p>如何解决跨域问题？</p>
+<li><p><strong>非阻塞</strong>：</p>
 <ul>
-<li><p>后端设置跨域访问 配置Acess-Ctrol-Allow-Origin 响应头  在webConfig配置类中重写addCorsMapping方法</p>
-</li>
-<li><p>通过代理服务器转发解决跨域问题</p>
-</li>
-<li><p>Node.js环境使用cores中间件</p>
-</li>
-<li><p>极端的方法可以禁用同源策略</p>
-</li>
+<li>就像你在公交站等车，但你可以不断地查看时间表或走动，即使车还没到，也不会完全卡住。</li>
+<li>在进行 I&#x2F;O 操作时，调用者不会被迫等待，而是立即返回一个状态（比如“暂时没有数据”），程序可以继续做其它事情，然后过一段时间再去检查。</li>
+<li>举例：使用 <code>select</code> 或 <code>epoll</code> 时，程序不断轮询检查哪些连接有数据可读，不会因为某个连接没有数据而阻塞整个程序。</li>
 </ul>
 </li>
 </ul>
-</li>
-<li><p>vue3区分vue2</p>
+<hr>
+<h3 id="综合理解"><a href="#综合理解" class="headerlink" title="综合理解"></a>综合理解</h3><ol>
+<li><p><strong>同步阻塞</strong>：</p>
 <ul>
-<li><p>选项式api到组合式api 逻辑上更加聚合</p>
-</li>
-<li><p>生命周期移除create 和 beforecreated钩子函数 引入了setup狗子</p>
-</li>
-<li><p>template标签可以不包在一个跟”<div/>“标签</p>
-</li>
-<li><p>vue2响应式系统通过Object.definePrperty()实现响应式结构</p>
-</li>
-<li><p>vue3通过proxy实现 可以代理整个对象 提升性能增添功能</p>
-</li>
-<li><p>优化编译器，更新组件渲染算法 支持逻辑复用 减少了打包体积</p>
-</li>
+<li>任务 A 要求结果，调用后程序停下来，直到任务 A 完成才继续下一步。</li>
+<li>例子：传统的文件读取，当你调用 <code>read()</code> 方法时，程序会停在那里等待数据读取完毕。</li>
 </ul>
 </li>
-<li><p>vuex和pinia作用</p>
+<li><p><strong>异步阻塞</strong>：</p>
 <ul>
-<li>状态管理</li>
+<li>任务 A 异步处理，但是如果没有结果，调用者仍然等待（例如，异步回调机制中如果用 <code>Future.get()</code> 直接等待结果）。</li>
+<li>这种情况其实也会让调用者阻塞，只不过底层任务是异步执行的。</li>
 </ul>
 </li>
-<li><p>ES6新特性</p>
+<li><p><strong>同步非阻塞</strong>：</p>
 <ul>
-<li><p>块级作用域： let 和 const </p>
-</li>
-<li><p>模板字符串</p>
-</li>
-<li><p>解构赋值</p>
-</li>
-<li><p>默认参数</p>
-</li>
-<li><p>展开运算符（…） 和剩余参数</p>
-<ul>
-<li><p>展开运算符</p>
-</li>
-<li><p>剩余参数</p>
-</li>
+<li>同步调用的方法会立刻返回，不会等待数据，但调用者必须不断主动轮询，直到获得需要的数据。</li>
+<li>例子：调用一个方法返回状态码，如果没有数据就返回“无数据”，然后调用者再决定如何处理。</li>
 </ul>
 </li>
-<li><p>引入导入导出模块</p>
-</li>
-<li><p>提供更直观的面向对象方法</p>
-</li>
-<li><p>引入promise ,简化异步操作的回调和管理</p>
-</li>
-<li><p>Map和Set的数据结构</p>
-</li>
-<li><p>for…of循环 类似for x : nums</p>
-</li>
-</ul>
-</li>
-<li><p>怎么判断一个变量是不是对象?</p>
+<li><p><strong>异步非阻塞</strong>：</p>
 <ul>
-<li><p>typeof判断</p>
-</li>
-<li><p>Object构造函数 x.constructor &#x3D;&#x3D;&#x3D; Object</p>
-</li>
-</ul>
-</li>
-<li><p>虚拟dom</p>
-<ul>
-<li>是js对象的抽象表示，本质描述真实的dom结构，包含tag,props，children子节点属性，vue虚拟dom更加适合数据的频繁变化，同时拥有跨平台性如浏览器 服务器， 开发者不需要关心dom树的变化，只需要关心数据就行了，虚拟dom是一个VNode对象，假设真实的dom是一个真实的书，虚拟的dom就是一个影印件，标注需要修改的部分，然后同步到书上，减少不必要的撕撰动作</li>
-</ul>
-</li>
-<li><p>&#x3D;&#x3D;&#x3D;和&#x3D;&#x3D;严格比较和宽松比较</p>
-<ul>
-<li>后者先执行类型转换，在进行比，前者直接严格比较不需要类型转换 根据编码的严谨性一般来说推荐严格比较 特殊情况如果出现null undefined是否相等时可以使用&#x3D;&#x3D; 在宽松比较的情况下被认为是相等的</li>
-</ul>
-</li>
-<li><p>发异步请求都有哪些方法?比如我想发一个业务请求, 用什么方法?</p>
-<ul>
-<li><p>jquery提供的异步请求方法，可以发送get,post请求，他的方法的参数是一个对象，对象有一些属性，比如说url, 发送请求的类型，get post之类，然后处理成功或者失败的回调函数（被传为另一个函数的函数）</p>
-</li>
-<li><p>fetch API是现代请求的一个api返回一个promise对象，发送一个http请求 并处理相应，fetch这个方法是有两个参数，参数是发送请求的路径，和一个对象，对象包括请求头，请求头来声明请求体的格式Content-type，比如json格式，纯文本格式等等,然后调用then来处理fetch返回的promise对象的结果，再处理返回的数据 然后通过catch捕获到错误，then会返回一个promise,catch来捕获任何可能发生的错误，超时，网络连接失败，json解析问题，拿到错误怎么处理 可以显示信息，或者记录到日志打印出来，方便我们开发的时候调试</p>
-</li>
-</ul>
-</li>
-<li><p>.如何取消一个业务请求?</p>
-<ul>
-<li><p>使用AbortController取消请求，fetch本身不提供取消请求的机制</p>
-</li>
-<li><p>使用新建xmlHttpRequest()对象 调用abort对象取消</p>
-</li>
-</ul>
-</li>
-<li><p>遍历数组都有哪些方法?</p>
-<ul>
-<li><p>for循环</p>
-</li>
-<li><p>for of </p>
-</li>
-<li><p>for in (下标索引)</p>
-</li>
-<li><p>forEach方法 传入回调函数作为参数</p>
-</li>
-<li><p>map方法 创建map返回一个新数组 参数是一个回调函数 这个回调函数就是操作数组元素 然后返回的是一个新数组 也就是和foreach不同的地方</p>
-</li>
-<li><p>filter返回满足条件的新数组</p>
-</li>
-<li><p>reduce对于数组元素进行累加或者组合操作 计算累计结果 参数是结果和当前元素</p>
-</li>
-<li><p>reduceright这个方法和前者类似  是从数组右边开始遍历</p>
-</li>
-<li><p>some方法 返回一个布尔值 判断数组中是否有元素满足条件</p>
-</li>
-<li><p>every 方法 判断数组中是否所有元素都满足条件</p>
-</li>
-<li><p>find 查询所有符合条件的元素的第一个值</p>
-</li>
-<li><p>findIndex 返回第一个满足条件的属性的索引</p>
-</li>
-<li><p>flatMap 数组的展平操作 使用映射函数 为每一个元素都执行相关的回调</p>
-</li>
-</ul>
-</li>
-<li><p>比如我有一个电话号码, 想要截取后四位, 用js怎么实现?</p>
-<ol>
-<li><p>直接调用slice方法 参数是索引 从索引位置截取字符串</p>
-</li>
-<li><p>直接调用substring方法截取  闭区间 不接受复数索引</p>
-</li>
-</ol>
-</li>
-<li><p>绘制扇形</p>
-<ul>
-<li>background: conic-gradient(…) 参数是渐变区域</li>
-</ul>
-</li>
-<li><p>http协议和https协议</p>
-<ul>
-<li>超文本传输协议 和https安全超文本传输协议都是传输数据的协议 http的数据都是铭文的形式 更容易本篡改 浏览器和web服务器之间的区别 默认端口是80 https默认端口是443 通过ssl&#x2F;tls协议对数据进行加密 确保数据的完整性 适合传递的数据比较敏感的情况 比如网上银行 电子支付 在线购物涉及到资金之类的情况</li>
-</ul>
-</li>
-<li><p>如何判断域名一不一样</p>
-<ul>
-<li><p>直接比较 比较域名的字符串 子域名主域名 顶级域名完全匹配就是匹配</p>
-</li>
-<li><p>将域名解析为IP地址 比较相同的域名是不是解析到相同的ip</p>
-</li>
-<li><p>注意域名是大小写的</p>
-</li>
-</ul>
-</li>
-<li><p>原型链 原型</p>
-<ul>
-<li>每个对象身上都有一个__proto__,表示该对象的原型，__proto__也是一个对象，所以他也有自己的原型__proto__，当访问一个对象身上的方法和属性时，会在对象本身寻找，如果找不到会沿着原型的__proto__继续向上寻找，直到找到object的null。原型链是每个类，构造函数都有一个prototype表示这个类的显式原型，所创建出来的</li>
-<li>实例对象的__proto__都指向这个类的prototype，prototype也是对象，也有它的__proto__,通过修改类的显式原型prototype的__proto__指向另一个类，那么这个类创造的实例对象就可以访问到另一个类身上的属性和方法</li>
-</ul>
-</li>
-<li><p>vue中created和mouted的区别</p>
-<ul>
-<li>组件创建完成就触发 后者挂载到dom就触发 前者实现组件逻辑数据的初始化可以理解调用数据 已经组件方法 但是不能操作dom树 后者可以通过el访问到dom元素 通过$el就能访问到DOM根元素</li>
-</ul>
-</li>
-<li><p>scope是怎么避免样式冲突的</p>
-<ul>
-<li>使用该标签的时候，vue编译器会为当前组件的每一个dom元素添加一个自动成成的属性，唯一属性标识符data-v-xx，作为id，用作选择器范围的标记</li>
-</ul>
-</li>
-<li><p>scope怎么更改子组件样式</p>
-<ul>
-<li>vue提供了一个特殊的深度选择器 可以突破scoped的限制 参数是子组件元素</li>
-</ul>
-</li>
-<li><p>事件循环机制</p>
-<ul>
-<li><p>是js实现异步编程的核心机制，负责协调任务队列，异步操作以及回调函数，js使用任务队列管理异步任务，避免阻塞主线程。</p>
-<ul>
-<li><p>事件循环的大概步骤：</p>
-<ul>
-<li><p>运行主线程同步任务 初始化代码执行成功完成后检查任务队列</p>
-</li>
-<li><p>检查宏任务队列 取出第一个任务执行：什么是宏任务呢，比如setTimeout(回调函数，间隔等待时间),setInterval，，Ajax完成的回调</p>
-</li>
-<li><p>检查微任务队列，执行所有微任务队列 什么是为任务呢 Promise的then catch finally （微服务优先级更高）</p>
-</li>
-<li><p>更新渲染</p>
-</li>
-<li><p>重复循环</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>强缓存和协商缓存</p>
-<ul>
-<li><p>强缓存</p>
-<ul>
-<li><p>无需向服务器发起请求 浏览器直接从本地缓存读取数据</p>
-</li>
-<li><p>没有网络请求 资源加载速度极快</p>
-</li>
-<li><p>指定过期时间 但是受客户端影响 本地时间本篡改 缓存可能失效</p>
-</li>
-</ul>
-</li>
-<li><p>协商缓存</p>
-<ul>
-<li><p>需要和服务器交互，来验证本地缓存是否有效</p>
-</li>
-<li><p>有效服务器返回状态码</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>option请求</p>
-</li>
-<li><p>vue生命周期</p>
-</li>
-<li><p>HTML</p>
-<ol>
-<li><p>语义化标签</p>
-<ol>
-<li>准确的描述内容结构的标签</li>
-</ol>
-</li>
-<li><p>行内元素行内块元素</p>
-<ul>
-<li><p><strong>块元素</strong>：独占一行，可设置宽高（如 <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>）。</p>
-</li>
-<li><p><strong>行内元素</strong>：不独占一行，宽高由内容决定（如 <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>）。</p>
-</li>
-<li><p><strong>行内块元素</strong>：结合两者特性（如 <code>&lt;img&gt;</code>, <code>&lt;input&gt;</code>）。</p>
-</li>
-</ul>
-</li>
-<li><p>CSS</p>
-<ol>
-<li><p>标准盒子模型 ie盒子模型</p>
-<ul>
-<li><p><strong>标准盒子</strong>：<code>width = content</code>，总宽度 &#x3D; <code>width + padding + border</code>。</p>
-</li>
-<li><p><strong>IE盒子</strong>：<code>width = content + padding + border</code>，总宽度直接由 <code>width</code> 定义。</p>
-</li>
+<li>完全的异步机制，调用者发出请求后立即继续执行其它操作，等到任务完成后通过回调或事件通知来处理结果。</li>
+<li>例子：Node.js 中的异步 I&#x2F;O，当你请求读取文件时，它会立即返回，然后当文件数据准备好时触发一个回调函数处理数据。</li>
 </ul>
 </li>
 </ol>
+<hr>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><ul>
+<li><p><strong>同步 vs 异步</strong>：<br>同步强调“调用后等待结果”，异步则强调“调用后立即返回，结果稍后通知”。</p>
 </li>
-<li><p>垂直居中</p>
-<ul>
-<li><p>Flex：<code>display: flex; align-items: center; justify-content: center;</code></p>
-</li>
-<li><p>Grid：<code>display: grid; place-items: center;</code></p>
-</li>
-<li><p>绝对定位：<code>position: absolute; top: 50%; transform: translateY(-50%);</code></p>
+<li><p><strong>阻塞 vs 非阻塞</strong>：<br>阻塞指“操作会停住程序的执行，等待结果”；非阻塞则是“操作不会让程序停下来，及时返回结果（如无数据则提示）”。</p>
 </li>
 </ul>
-</li>
-<li><p>定位的区别</p>
+<p>结合这两个概念，在实际应用中：</p>
 <ul>
-<li><p><code>static</code>：默认，元素按文档流排列。</p>
-</li>
-<li><p><code>relative</code>：相对自身原位置偏移。</p>
-</li>
-<li><p><code>absolute</code>：相对于最近非 <code>static</code> 父元素定位。</p>
-</li>
-<li><p><code>fixed</code>：相对于视口定位。</p>
-</li>
-<li><p><code>sticky</code>：滚动时在阈值范围内固定。</p>
-</li>
+<li>同步阻塞方式简单直观，但在处理大量 I&#x2F;O 时容易效率低下，因为程序可能一直在等待。</li>
+<li>异步非阻塞方式更高效，特别是在高并发场景下，可以让程序在等待 I&#x2F;O 的同时去处理其它任务。</li>
 </ul>
-</li>
-<li><p>三栏布局</p>
-</li>
-</ol>
-</li>
-</ol>
 
                     
                 </div>
@@ -566,14 +317,14 @@
                             <div class="prev-post">
                                 <a class="prev"
                                    rel="prev"
-                                   href="/any%E5%92%8Cunknown/"
-                                   title="any和unknown"
+                                   href="/%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5%E9%98%BB%E5%A1%9E%E5%92%8C%E9%9D%9E%E9%98%BB%E5%A1%9E/"
+                                   title="async/await"
                                 >
                                     <span class="left arrow-icon flex-center">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">any和unknown</span>
+                                        <span class="post-nav-title-item text-ellipsis">async/await</span>
                                         <span class="post-nav-item">Prev posts</span>
                                     </span>
                                 </a>
@@ -583,11 +334,11 @@
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/MySQL-0/"
-                                   title="MySQL"
+                                   href="/Vue-scoped/"
+                                   title="Vue scoped"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">MySQL</span>
+                                        <span class="post-nav-title-item text-ellipsis">Vue scoped</span>
                                         <span class="post-nav-item">Next posts</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
