@@ -9,7 +9,7 @@
     
     <title>
         
-            Tag: vue |
+            面试 |
         
         Keep Theme
     </title>
@@ -152,126 +152,145 @@
             <div class="main-content border-box">
                 
 
-                    <div class="fade-in-down-animation">
-    <div class="tag-archive-container border-box">
-        <div class="tag-name"><i class="fas fa-hashtag"></i>&nbsp;vue
-        </div>
-        <div class="tag-post-list">
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
             
-<div class="archive-list-container border-box">
-    
-        <section class="archive-item border-box">
-            <div class="archive-item-header border-box">
-                <span class="archive-year">2024</span>
-            </div>
-            <ul class="archive-item-body border-box">
+
+            <div class="post-content-bottom border-box">
                 
-                    <li class="post-item border-box">
-                        <span class="starting-point border-box flex-center"></span>
-                        <span class="post-date border-box">10-25</span>
-                        <a class="post-title border-box text-ellipsis"
-                           href="/vue/"
-                        >vue</a>
-                    </li>
+                    <div class="post-title">
+                        面试
+                    </div>
                 
-            </ul>
-        </section>
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/avatar.svg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">Keep Team</span>
+                                
+                                    <span class="author-badge">Lv4</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2025-04-01 14:42:51</span>
+            </span>
+
+            <span class="meta-info-item post-update-date">
+                <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                <span class="datetime" data-updated="Tue Apr 01 2025 16:01:08 GMT+0800">2025-04-01 16:01:08</span>
+            </span>
+        
+
+        
+
+        
+
+        
+        
+        
+        
+    </div>
+
     
 </div>
 
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <ol>
+<li><p>谈一谈你的实习的时候遇到的困难</p>
+<ul>
+<li><p>(前端)</p>
+</li>
+<li><p>首先是项目完全由我一个人负责，前一个开发者一早就离职了，只留下了交接文档，代码多出关键逻辑不清晰有没有注释，熟悉代码排除bug就花了很久，前端才有的是electron开发，集成的web技术是vue3,但是很多写法是vue2的写法，导致有的时候组件库会不灵，然后就是这个，这个对我当时工作带来了挺大的阻碍，举个例子我修改bug的时候先入为主的觉得是框架问题，比如当时销售部反馈最新版本划词区号无法跳转小助手进而查看关联电话好的详情，划词区号有两个功能，一个可以跳拨号盘，一个可以跳关联电话，但是拨号盘跳转是正常的，然后我就叫唤了一下点击绑定的事件，发现还是可以，排除事件绑定的问题，然后前端electron框架是采用渲染进程发送，主进程监听的方法实现进程通信的，进而排除不是渲染进程发送事件的问题，最后经过一系列的调试，发现是在主进程，前面的开发者获取的窗口对象出错，监听窗口大小没有绑定的正确的窗口的问题，这里直接是报错阻塞的后面的左右主进程监听事件，他这个版本也是问题最大的版本。渲染进程和主进程的控制台不是一个，导致我没注意到这里的问题。</p>
+</li>
+<li><p>然后就是设计高亮搜索的时候，之前点击对话内容，进度条和录音同时定位到该位置失效的问题，这里涉及到<strong>冒泡机制</strong>的问题，加完高亮搜索之后，出现事件绑定的问题，在span里面嵌套了一个div，点击div就出现触发事件涉及到事件冒泡，父元素虽然能够捕获到时间，但是下面<code>event.target</code> 指向实际点击的 DOM 元素（可能是内部的 div），这里修改为<code>event.currentTarget</code> 始终指向事件绑定的元素（span），能稳定获取 <code>start_s/end_s</code> 属性才能正确触发滚动事件。</p>
+</li>
+</ul>
+</li>
+<li><p>你提到了冒泡机制谈一谈你对冒泡机制的理解</p>
+<ul>
+<li>在js中事件冒泡是一种事件传播机制，某个元素出发的时候事件会从该位置逐层冒泡到父元素知道dicument节点，举个例子 设计模态框的时候 点击背景关闭模态框的时候，点击模态框内容不能触发关闭时间就要在点击模态框时调用<code>event.stopPropagation()</code> 阻止事件冒泡。</li>
+</ul>
+</li>
+</ol>
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2025%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93%E6%B1%87%E6%80%BB/"
+                                   title="2025面试总结汇总"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">2025面试总结汇总</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
         </div>
+
+        
     </div>
-    .paginator {
-  gap 1rem
-  margin-top $page-container-gap
-  user-select none
-
-  .paginator-btn {
-    cursor not-allowed
-
-    a {
-      padding 0.3rem 0.6rem
-      pointer-events none
-
-      i {
-        color var(--text-color-4)
-        font-size 1rem
-      }
-    }
-
-
-    &.allowed {
-      cursor pointer
-
-      a {
-        pointer-events auto
-
-        i {
-          color var(--text-color-3)
-        }
-      }
-
-      &:hover {
-        a {
-          i {
-            color var(--primary-color)
-          }
-        }
-      }
-    }
-  }
-
-
-  .base-style {
-    color var(--text-color-4)
-    font-size 1.1rem
-  }
-
-
-  .page-number-box {
-    margin 0 0.2rem
-
-    .page-number-input {
-      width 2.8rem
-      height 2rem
-      margin 0
-      padding 0
-      font-weight 400 !important
-      font-size 1rem
-      text-align center
-      background none
-      border 0.1rem solid var(--border-color)
-      border-radius 0.3rem
-      outline none
-      -webkit-appearance none
-      transition-t("width, border-color", "0, 0", "0.2, 0.2", "ease, ease")
-
-
-      &::-webkit-outer-spin-button
-      &::-webkit-inner-spin-button {
-        -webkit-appearance none !important
-      }
-
-      &:hover
-      &:focus {
-        width 3.8rem
-        border-color var(--primary-color)
-      }
-    }
-
-
-    .delimiter {
-      margin 0 0.6rem
-    }
-  }
-}
-
-
-
-
-
-
-
 </div>
 
 
@@ -304,6 +323,27 @@
     </div>
 
     <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
     
 
     <!-- side tools -->
@@ -369,7 +409,6 @@
 
 
 
-
 <!-- common js -->
 
 <script src="/js/utils.js"></script>
@@ -398,6 +437,20 @@
     
 
     <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
     
 
     <!-- categories page -->
