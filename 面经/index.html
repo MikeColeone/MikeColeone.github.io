@@ -194,7 +194,7 @@
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Sat Mar 29 2025 20:51:09 GMT+0800">2025-03-29 20:51:09</span>
+                <span class="datetime" data-updated="Wed Apr 16 2025 21:50:00 GMT+0800">2025-04-16 21:50:00</span>
             </span>
         
 
@@ -483,7 +483,30 @@
 </li>
 <li><p>option请求</p>
 </li>
-<li><p>vue生命周期</p>
+<li><p>vue</p>
+<ol>
+<li><p>介绍一下vue3的钩子函数</p>
+</li>
+<li><p>vue.nextTick原理</p>
+<ul>
+<li><p>异步执行DOM更新后回调</p>
+</li>
+<li><p>实现：微任务为主，降级为setTimeout</p>
+</li>
+</ul>
+</li>
+<li><ol>
+<li><p>vue响应式原理</p>
+<ul>
+<li><p>Vue2：递归使用 <code>Object.defineProperty</code> 劫持数据 → 新增属性监听不到</p>
+</li>
+<li><p>Vue3：使用 <code>Proxy</code> 一次性代理整个对象，不需要递归</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
 </li>
 <li><p>HTML</p>
 <ol>
@@ -498,35 +521,13 @@
 </li>
 <li><p><strong>行内元素</strong>：不独占一行，宽高由内容决定（如 <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>）。</p>
 </li>
-<li><p><strong>行内块元素</strong>：结合两者特性（如 <code>&lt;img&gt;</code>, <code>&lt;input&gt;</code>）。</p>
-</li>
-</ul>
-</li>
-<li><p>CSS</p>
-<ol>
-<li><p>标准盒子模型 ie盒子模型</p>
-<ul>
-<li><p><strong>标准盒子</strong>：<code>width = content</code>，总宽度 &#x3D; <code>width + padding + border</code>。</p>
-</li>
-<li><p><strong>IE盒子</strong>：<code>width = content + padding + border</code>，总宽度直接由 <code>width</code> 定义。</p>
-</li>
-</ul>
-</li>
-</ol>
-</li>
-<li><p>垂直居中</p>
-<ul>
-<li><p>Flex：<code>display: flex; align-items: center; justify-content: center;</code></p>
-</li>
-<li><p>Grid：<code>display: grid; place-items: center;</code></p>
-</li>
-<li><p>绝对定位：<code>position: absolute; top: 50%; transform: translateY(-50%);</code></p>
+<li><p><strong>行内块元素</strong>：结合两者特性（如 <code>&lt;img&gt;</code>, <code>&lt;input&gt;</code>,<code>**&lt;img&gt;**</code>）。</p>
 </li>
 </ul>
 </li>
 <li><p>定位的区别</p>
 <ul>
-<li><p><code>static</code>：默认，元素按文档流排列。</p>
+<li><p><code>static</code>：默认，元素按文档流排列。也就是没定位</p>
 </li>
 <li><p><code>relative</code>：相对自身原位置偏移。</p>
 </li>
@@ -540,6 +541,398 @@
 </li>
 <li><p>三栏布局</p>
 </li>
+<li><p><span> 里放 <div> 怎么显示？</p>
+<ul>
+<li>规范中行内元素不能包块级元素。但是其实还是会显示，span依然是行内元素 但是内部的div会独占一行</li>
+</ul>
+</li>
+<li><p>两个div高度塌陷怎么解决</p>
+<ul>
+<li><p>通常是父级元素只包括了浮动元素，导致高度为0，给父级元素添加overflow：hidden或者比较现代的写法display:flow-root,或者编写（兼容性比较好）</p>
+</li>
+<li><p><code>.clearfix::after &#123;   content: &quot;&quot;;   display: table; /*table兼容性更好相较于block,不是表格，而是布局*/   clear: both;告诉这个伪元素：不允许和前面任何浮动元素（不管是左浮动 </code>float: left<code>还是右浮动</code>float: right<code>）并排，必须**“躲”到它们下方**。 &#125;</code></p>
+</li>
+</ul>
+</li>
+<li><p>overflow</p>
+<ul>
+<li>控制溢出内容方式,有三个参数，比如：visible:默认，溢出显示,hidden：溢出隐藏,scroll：显示进度条,auto：溢出时显示进度条</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>CSS</p>
+<ol>
+<li><p>标准盒子模型 ie盒子模型</p>
+<ul>
+<li><p><strong>标准盒子</strong>：<code>width = content</code>，总宽度 &#x3D; <code>width + padding + border</code>。</p>
+</li>
+<li><p><strong>IE盒子</strong>：<code>width = content + padding + border</code>，总宽度直接由 <code>width</code> 定义。</p>
+</li>
+</ul>
+</li>
+<li><p>垂直居中</p>
+<ul>
+<li><p>Flex：<code>display: flex; align-items: center; justify-content: center;</code></p>
+</li>
+<li><p>Grid：<code>display: grid; place-items: center;</code></p>
+</li>
+<li><p>绝对定位：<code>position: absolute; top: 50%; transform: translateY(-50%);</code></p>
+</li>
+</ul>
+</li>
+<li><p>CSS三大特性</p>
+<ul>
+<li><p>继承性</p>
+</li>
+<li><p>层叠性（优先级）</p>
+</li>
+<li><p>选择器匹配规则</p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>JS</p>
+<ol>
+<li><p>js的数据类型</p>
+<ul>
+<li><p>原始类型：<code>String</code>、<code>Number</code>、<code>Boolean</code>、<code>undefined</code>、<code>null</code>、<code>Symbol</code>、<code>BigInt</code></p>
+</li>
+<li><p>引用类型：<code>Object</code>、<code>Array</code>、<code>Function</code>、<code>Date</code> 等</p>
+</li>
+</ul>
+</li>
+<li><p>new操作做了什么，怎么实现继承？</p>
+<ul>
+<li><p>创建空对象</p>
+</li>
+<li><p>设置原型指向构造函数的prototype</p>
+</li>
+<li><p>执行构造函数</p>
+</li>
+<li><p>返回新对象</p>
+</li>
+</ul>
+</li>
+<li><p>继承的方法</p>
+<ul>
+<li><p>原型继承</p>
+</li>
+<li><p>构造函数继承</p>
+</li>
+<li><p>组合继承</p>
+</li>
+<li><p>ES6的class继承</p>
+</li>
+</ul>
+</li>
+<li><p>JS为什么是单线程</p>
+<ul>
+<li><p>最初的js是为了操作DOM，浏览器DOM不是线程安全的，单线程避免复杂的并发问题</p>
+</li>
+<li><p>通过事件循环处理异步任务</p>
+</li>
+<li><p><strong>JavaScript 本身是单线程的，不是线程安全的语言。</strong><br>因为它没有内置多线程操作下的<strong>同步机制（如锁、原子操作等）</strong>，也就意味着：</p>
+<blockquote>
+<p>如果多个线程同时访问同一份数据，没有机制保障“谁先谁后、如何冲突处理”，就会有 <strong>数据竞争</strong> 或 <strong>状态不一致</strong> 的风险。</p>
+</blockquote>
+</li>
+<li><p>如果多个线程同时操作一个按钮的位置、文字，结果会混乱。所以为了解决这个问题，浏览器决定：</p>
+<blockquote>
+<p><strong>干脆让 JavaScript 只能单线程运行</strong>，一切按顺序来，避免并发冲突。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>ES6新特性</p>
+<ul>
+<li><p>let &#x2F; const</p>
+</li>
+<li><p>解构赋值</p>
+</li>
+<li><p>箭头函数</p>
+</li>
+<li><p>Promise</p>
+</li>
+<li><p>模板字符串</p>
+</li>
+<li><p>模块化（import&#x2F;export）</p>
+</li>
+<li><p>class 语法</p>
+</li>
+<li><p>Set&#x2F;Map</p>
+</li>
+<li><p>Symbol</p>
+</li>
+</ul>
+</li>
+<li><p>this指针的指向</p>
+<ul>
+<li><p>根据调用方式动态绑定：谁调用 this 指向谁</p>
+</li>
+<li><p>箭头函数没有自己的 this，取决于定义时的上下文</p>
+</li>
+<li><p>特殊情况：<code>bind</code>、<code>call</code>、<code>apply</code></p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>前端开发</p>
+<ol>
+<li><p>页面从 URL 到页面渲染的过程</p>
+<ul>
+<li>输入URL之后，首先DNS解析，将域名解析为IP,建立TCP连接，也就是三次握手，之后发送HTTP请求，等待服务器响应，返回请求的资源，浏览器解析HTML,构建DOM树，加载CSS构建CSSOM树，并合并为RenderTree,然后计算元素位置，像素填充，最后合成和渲染</li>
+</ul>
+</li>
+<li><p>TCP和UDP的区别</p>
+<ol>
+<li><table>
+<thead>
+<tr>
+<th></th>
+<th>TCP</th>
+<th>UDP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>连接</td>
+<td>面向连接（三次握手）</td>
+<td>无连接</td>
+</tr>
+<tr>
+<td>可靠性</td>
+<td>可靠，数据顺序一致</td>
+<td>不可靠，可能丢包</td>
+</tr>
+<tr>
+<td>速度</td>
+<td>慢</td>
+<td>快</td>
+</tr>
+<tr>
+<td>应用</td>
+<td>HTTP、FTP、邮件</td>
+<td>视频直播、DNS、VoIP</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+</li>
+<li><p>WebRTC基于什么协议</p>
+<ul>
+<li><p>用于浏览器之间的实时通信</p>
+<ul>
+<li><p>UDP: 用于传输音视频数据</p>
+</li>
+<li><p>STUN&#x2F;TURN:穿透NAT</p>
+</li>
+<li><p>DTLS：加密控制信令</p>
+</li>
+<li><p>ICE: 连接候选商机制</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>CSS选择器权重</p>
+<ul>
+<li><p>内联样式：<code>1000</code></p>
+</li>
+<li><p>ID 选择器：<code>100</code></p>
+</li>
+<li><p>类、伪类、属性：<code>10</code></p>
+</li>
+<li><p>元素、伪元素：<code>1</code></p>
+</li>
+<li><p>通配符、继承、无选择器：<code>0</code></p>
+</li>
+</ul>
+<p>比如：<code>#id .class p</code> &#x3D;&gt; <code>100 + 10 + 1 = 111</code></p>
+</li>
+<li><p>项目里性能优化</p>
+<ul>
+<li><p>懒加载</p>
+</li>
+<li><p>防抖节流</p>
+</li>
+<li><p>虚拟列表</p>
+</li>
+<li><p>Code Splitting:按照路由&#x2F;模块拆包</p>
+</li>
+<li><p>memo&#x2F;useMemo&#x2F;useCallback避免无效的render</p>
+</li>
+<li><p>服务器渲染（SSR）提升首屏加载</p>
+</li>
+</ul>
+</li>
+<li><p>大文件上传每一个文件的唯一标识要怎么去获得呢？</p>
+</li>
+<li><p>浏览器的缓存机制</p>
+<ul>
+<li><p>强缓存机制</p>
+<ul>
+<li>不请求服务器</li>
+</ul>
+</li>
+<li><p>协商缓存</p>
+<ul>
+<li>请求服务器</li>
+</ul>
+</li>
+<li><p>浏览器缓存策略控制来自</p>
+<ul>
+<li><p>HTTP头</p>
+</li>
+<li><p>Service Worker</p>
+</li>
+<li><p>Storage</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>两个Tab之间的通信方式</p>
+<ul>
+<li><p><strong>localStorage 监听 <code>storage</code> 事件</strong></p>
+</li>
+<li><p><strong>BroadcastChannel API</strong></p>
+</li>
+<li><p><strong>SharedWorker</strong></p>
+</li>
+<li><p><strong>postMessage + window.name &#x2F; iframe 通信</strong></p>
+</li>
+</ul>
+</li>
+<li><p>浏览器垃圾回收机制</p>
+<ul>
+<li><p>主要基于<strong>标记清除算法</strong>：</p>
+<ol>
+<li><p>找到“根对象”（window、全局变量等）</p>
+</li>
+<li><p>遍历引用链，标记可达对象</p>
+</li>
+<li><p>清除不可达对象</p>
+</li>
+</ol>
+<p>V8 引擎还有：</p>
+<ul>
+<li><p><strong>新生代（Scavenge）</strong>：复制算法</p>
+</li>
+<li><p><strong>老生代（Mark-Sweep-Compact）</strong>：标记清除+整理</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>CSS和JS加载区别</p>
+<ul>
+<li><p>CSS不阻塞HTML解析，但是阻塞渲染和JS执行</p>
+</li>
+<li><p>默认阻塞HTML解析</p>
+</li>
+</ul>
+</li>
+<li><p>CSS是否阻塞</p>
+<ul>
+<li><p>❌ 不阻塞 DOM 解析</p>
+</li>
+<li><p>✅ 阻塞渲染树构建（CSSOM 和 DOM 必须合成）</p>
+</li>
+<li><p>✅ 阻塞 JS 执行（因为 JS 可能依赖样式）</p>
+</li>
+</ul>
+</li>
+<li><p>async和defer的区别</p>
+<ul>
+<li><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>加载方式</th>
+<th>执行时机</th>
+<th>是否阻塞解析</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>async</td>
+<td>异步加载</td>
+<td>下载完成立刻执行</td>
+<td>✅ 可能阻塞</td>
+</tr>
+<tr>
+<td>defer</td>
+<td>异步加载</td>
+<td>DOMContentLoaded 前</td>
+<td>❌ 不阻塞</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li><p>不定宽和高如何居中</p>
+<ul>
+<li>.parent {<br>  display: flex;<br>  justify-content: center;<br>  align-items: center;<br>}</li>
+</ul>
+</li>
+<li><p>修改ElementUI的样式</p>
+<ul>
+<li><p>使用浏览器开发工具直接定位到class</p>
+</li>
+<li><p>覆盖Css层级权重更高一点</p>
+</li>
+<li><p>使用::v-deep样式透传</p>
+</li>
+<li><p>自定义主题&#x2F;覆盖SCSS变量</p>
+</li>
+</ul>
+</li>
+<li><p>vue2和vue3的区别</p>
+<ul>
+<li><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Vue2</th>
+<th>Vue3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>响应式原理</td>
+<td>Object.defineProperty</td>
+<td>Proxy</td>
+</tr>
+<tr>
+<td>语法风格</td>
+<td>Options API</td>
+<td>Composition API</td>
+</tr>
+<tr>
+<td>性能优化</td>
+<td>手动优化</td>
+<td>Tree-shaking、更快响应</td>
+</tr>
+<tr>
+<td>支持情况</td>
+<td>支持 IE11</td>
+<td>不支持 IE11</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li><p>vue响应式原理</p>
+<ul>
+<li><p>Vue2：递归使用 <code>Object.defineProperty</code> 劫持数据 → 新增属性监听不到</p>
+</li>
+<li><p>Vue3：使用 <code>Proxy</code> 一次性代理整个对象，不需要递归</p>
+</li>
+</ul>
+</li>
+<li><p>vite和webpack</p>
+</li>
+<li></li>
 </ol>
 </li>
 </ol>
