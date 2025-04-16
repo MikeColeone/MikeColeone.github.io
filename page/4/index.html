@@ -161,115 +161,6 @@
                 <div class="home-post-item-bottom border-box">
                     
                     <h3 class="home-post-title border-box">
-                        <a href="/hexo/">
-                            hexo.md
-                        </a>
-                    </h3>
-
-                    <div class="home-post-content keep-markdown-body">
-                        
-                            问题：发布博客较多 并且都在post文件夹之下
-修改文件：_config.yml —— 主题配置文件
-
-12permalink: :name/ #设置文件链接访问格式new_post_name: :year/:title.md #新发布文章储存位置
-...
-                        
-                    </div>
-
-                    
-
-<div class="post-meta-info-container border-box home">
-    <div class="post-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fa-solid fa-history"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Mon Sep 30 2024 18:29:36 GMT+0800"
-                >2024-09-30 18:29:36</span>
-            </span>
-        
-
-        
-
-        
-
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/hexo/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-post-item">
-
-                
-
-                <div class="home-post-item-bottom border-box">
-                    
-                    <h3 class="home-post-title border-box">
-                        <a href="/docker-mysql-8/">
-                            docker mysql:8
-                        </a>
-                    </h3>
-
-                    <div class="home-post-content keep-markdown-body">
-                        
-                            docker拉取mysql“”本文记录了利用centos7拉取mysql:8最简单的过程””
-
-启动docker 并查看docker状态
-
-sudo systemctl start docker
-sudo systemctl status docke...
-                        
-                    </div>
-
-                    
-
-<div class="post-meta-info-container border-box home">
-    <div class="post-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fa-solid fa-history"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Sun Feb 23 2025 20:43:28 GMT+0800"
-                >2025-02-23 20:43:28</span>
-            </span>
-        
-
-        
-
-        
-
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/docker-mysql-8/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-post-item">
-
-                
-
-                <div class="home-post-item-bottom border-box">
-                    
-                    <h3 class="home-post-title border-box">
                         <a href="/ssm/">
                             ssm
                         </a>
@@ -724,94 +615,90 @@ vue中的渲染时自上而下的，遇到子组件时父组件会有先渲染�
                 </div>
             </li>
         
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/first/">
+                            first
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-history"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Sat Sep 28 2024 15:57:26 GMT+0800"
+                >2024-09-28 15:57:26</span>
+            </span>
+        
+
+        
+
+        
+
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/first/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
     </ul>
-    .paginator {
-  gap 1rem
-  margin-top $page-container-gap
-  user-select none
+    
+    <div class="paginator border-box flex-center">
+        <div class="border-box first-page paginator-btn allowed">
+            <a class="border-box"><i class="fa-solid fa-angle-double-left"></i></a>
+        </div>
 
-  .paginator-btn {
-    cursor not-allowed
-
-    a {
-      padding 0.3rem 0.6rem
-      pointer-events none
-
-      i {
-        color var(--text-color-4)
-        font-size 1rem
-      }
-    }
+        <div class="border-box paginator-btn allowed">
+            <a class="border-box"
+               href="/page/3/"
+            ><i class="fa-solid fa-chevron-left"></i></a>
+        </div>
 
 
-    &.allowed {
-      cursor pointer
-
-      a {
-        pointer-events auto
-
-        i {
-          color var(--text-color-3)
-        }
-      }
-
-      &:hover {
-        a {
-          i {
-            color var(--primary-color)
-          }
-        }
-      }
-    }
-  }
+        <div class="page-number-box border-box flex-center">
+            <input class="page-number-input border-box base-style"
+                   type="number"
+                   value="4"
+                   min="1"
+                   max="4"
+            /><span class="delimiter base-style">/</span><span class="base-style">4</span>
+        </div>
 
 
-  .base-style {
-    color var(--text-color-4)
-    font-size 1.1rem
-  }
+        <div class="border-box paginator-btn">
+            <a class="border-box"
+               href="/"
+            ><i class="fa-solid fa-chevron-right"></i></a>
+        </div>
 
-
-  .page-number-box {
-    margin 0 0.2rem
-
-    .page-number-input {
-      width 2.8rem
-      height 2rem
-      margin 0
-      padding 0
-      font-weight 400 !important
-      font-size 1rem
-      text-align center
-      background none
-      border 0.1rem solid var(--border-color)
-      border-radius 0.3rem
-      outline none
-      -webkit-appearance none
-      transition-t("width, border-color", "0, 0", "0.2, 0.2", "ease, ease")
-
-
-      &::-webkit-outer-spin-button
-      &::-webkit-inner-spin-button {
-        -webkit-appearance none !important
-      }
-
-      &:hover
-      &:focus {
-        width 3.8rem
-        border-color var(--primary-color)
-      }
-    }
-
-
-    .delimiter {
-      margin 0 0.6rem
-    }
-  }
-}
-
-
-
+        <div class="border-box last-page paginator-btn not-allow">
+            <a class="border-box"><i class="fa-solid fa-angle-double-right"></i></a>
+        </div>
+    </div>
 
 
 
